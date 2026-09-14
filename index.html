@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مؤسسة فداء التنموية الخيرية | عطاؤكم حياة</title>
+<meta name="description" content="مؤسسة فداء التنموية الخيرية - نعمل في الإغاثة وكفالة الأيتام وسقيا الماء والتعليم والصحة وتمكين المجتمع في اليمن">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        fida: {50:'#effaf6',100:'#d7f0e8',200:'#b0e1d2',300:'#7ecbb6',400:'#4ab198',500:'#0e6b5e',600:'#0b5a4f',700:'#0a4840',800:'#0a3833',900:'#0a2724',950:'#041614'},
+        gold: {50:'#fdf9e8',100:'#faf0c6',200:'#f5e08d',300:'#eeca4e',400:'#d4a017',500:'#c9a227',600:'#a9821c',700:'#866219',800:'#6e521c',900:'#5f471c'},
+        sand:'#faf7f0',
+      },
+      fontFamily: { cairo:['Cairo','sans-serif'], amiri:['Amiri','serif'] },
+      boxShadow: { soft:'0 20px 60px -15px rgba(14,107,94,.25)', card:'0 10px 40px -10px rgba(0,0,0,.12)', glow:'0 0 0 6px rgba(201,162,39,.18)' }
+    }
+  }
+}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+*{font-family:'Cairo',sans-serif}
+html{scroll-behavior:smooth}
+body{background:#faf7f0;overflow-x:hidden}
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-track{background:#0a2724}
+::-webkit-scrollbar-thumb{background:linear-gradient(#0e6b5e,#c9a227);border-radius:20px}
+.pattern-islamic{background-image:url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.07'%3E%3Cpath d='M40 40l8-8 8 8-8 8-8-8zm0-24l6-6 6 6-6 6-6-6zm0 48l6-6 6 6-6 6-6-6zM16 40l6-6 6 6-6 6-6-6zm48 0l6-6 6 6-6 6-6-6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+.pattern-gold{background-image:radial-gradient(rgba(201,162,39,.18) 1.5px, transparent 1.5px);background-size:22px 22px}
+.hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease, transform 7s ease;transform:scale(1.08)}
+.hero-slide.active{opacity:1;transform:scale(1)}
+.text-stroke{-webkit-text-stroke:1px rgba(255,255,255,.35);color:transparent}
+.glass{background:rgba(255,255,255,.1);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.2)}
+.gold-grad{background:linear-gradient(135deg,#eeca4e 0%,#c9a227 40%,#8a6711 100%)}
+.green-grad{background:linear-gradient(135deg,#0e6b5e 0%,#0a4840 60%,#041614 100%)}
+.btn-shine{position:relative;overflow:hidden}
+.btn-shine::after{content:'';position:absolute;top:0;left:-80%;width:50%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.5),transparent);transform:skewX(-20deg);transition:.6s}
+.btn-shine:hover::after{left:130%}
+.card-hover{transition:.45s cubic-bezier(.2,.8,.2,1)}
+.card-hover:hover{transform:translateY(-10px)}
+.marquee-track{display:flex;gap:0;width:max-content;animation:marquee 28s linear infinite}
+@keyframes marquee{to{transform:translateX(50%)}}
+@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+.float-anim{animation:floatY 5s ease-in-out infinite}
+@keyframes pulseRing{0%{transform:scale(1);opacity:.7}100%{transform:scale(1.9);opacity:0}}
+.pulse-ring::before{content:'';position:absolute;inset:0;border-radius:9999px;background:rgba(201,162,39,.5);animation:pulseRing 1.8s ease-out infinite;z-index:-1}
+@keyframes spinSlow{to{transform:rotate(360deg)}}
+.spin-slow{animation:spinSlow 18s linear infinite}
+.progress-fill{transition:width 1.8s cubic-bezier(.2,.8,.2,1)}
+.tab-btn.active{background:#0e6b5e;color:#fff;border-color:#0e6b5e}
+.filter-btn.active{background:#0e6b5e;color:#fff;border-color:#0e6b5e;box-shadow:0 10px 25px -8px rgba(14,107,94,.5)}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height .5s ease}
+.faq-item.open .faq-answer{max-height:300px}
+.faq-item.open .faq-icon{transform:rotate(45deg)}
+.faq-icon{transition:.3s}
+input,select,textarea{outline:none}
+input:focus,select:focus,textarea:focus{border-color:#0e6b5e!important;box-shadow:0 0 0 4px rgba(14,107,94,.12)}
+#preloader{transition:opacity .7s, visibility .7s}
+.lightbox-open{overflow:hidden}
+.timeline-line::before{content:'';position:absolute;top:0;bottom:0;right:50%;width:3px;background:linear-gradient(#0e6b5e,#c9a227);transform:translateX(50%)}
+@media(max-width:768px){.timeline-line::before{right:20px;transform:none}}
+.story-slide{display:none}
+.story-slide.active{display:grid;animation:fadeSlide .6s ease}
+@keyframes fadeSlide{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.dot{transition:.3s}
+.dot.active{width:32px!important;background:#c9a227!important}
+.gallery-item img{transition:.6s}
+.gallery-item:hover img{transform:scale(1.1)}
+#mobileMenu{transition:.4s cubic-bezier(.2,.8,.2,1)}
+.modal-bg{background:rgba(4,22,20,.75);backdrop-filter:blur(8px)}
+.toast-show{transform:translateX(0)!important;opacity:1!important}
+.amount-btn.active{background:#0e6b5e!important;color:#fff!important;border-color:#0e6b5e!important;transform:scale(1.05)}
+.pay-btn.active{border-color:#0e6b5e!important;background:#effaf6!important}
+.nav-link{position:relative}
+.nav-link::after{content:'';position:absolute;bottom:-6px;right:0;width:0;height:3px;border-radius:99px;background:#c9a227;transition:.35s}
+.nav-link:hover::after,.nav-link.active::after{width:100%}
+.counter-box{position:relative;overflow:hidden}
+.counter-box::after{content:'';position:absolute;top:-40%;left:-20%;width:60%;height:200%;background:linear-gradient(105deg,transparent,rgba(255,255,255,.12),transparent);transform:rotate(15deg)}
+</style>
+</head>
+<body class="text-slate-800">
+
+<!-- PRELOADER -->
+<div id="preloader" class="fixed inset-0 z-[200] green-grad pattern-islamic flex flex-col items-center justify-center">
+  <div class="relative w-28 h-28 flex items-center justify-center">
+    <div class="absolute inset-0 rounded-full border-4 border-white/10"></div>
+    <div id="loaderRing" class="absolute inset-0 rounded-full border-4 border-transparent border-t-gold-400 border-l-gold-400" style="animation:spinSlow 1s linear infinite"></div>
+    <div class="w-16 h-16 rounded-2xl gold-grad flex items-center justify-center text-3xl font-black text-fida-950 shadow-2xl">ف</div>
+  </div>
+  <h2 class="mt-6 text-white text-2xl font-black">مؤسسة فداء</h2>
+  <p class="text-gold-300 text-sm mt-1 tracking-wide">عطاؤكم حياة .. وعهدنا أمانة</p>
+  <div class="mt-4 w-52 h-1.5 bg-white/10 rounded-full overflow-hidden"><div id="loadBar" class="h-full w-0 gold-grad rounded-full transition-all"></div></div>
+</div>
+
+<!-- TOP BAR -->
+<div class="bg-fida-950 text-white text-[13px] py-2 relative z-40">
+  <div class="max-w-7xl mx-auto px-4 flex flex-wrap items-center justify-between gap-2">
+    <div class="flex items-center gap-5">
+      <span class="flex items-center gap-2"><i class="fa-solid fa-phone text-gold-400"></i><span dir="ltr">+967 777 123 456</span></span>
+      <span class="hidden md:flex items-center gap-2"><i class="fa-solid fa-envelope text-gold-400"></i> info@fidaa-ye.org</span>
+      <span class="hidden lg:flex items-center gap-2"><i class="fa-solid fa-location-dot text-gold-400"></i> صنعاء - اليمن | نخدم جميع المحافظات</span>
+    </div>
+    <div class="flex items-center gap-3">
+      <span class="hidden sm:inline text-white/70">تابعونا :</span>
+      <a href="https://www.facebook.com/p/%D9%85%D8%A4%D8%B3%D9%8A%D8%A9-%D9%81%D8%AF%D8%A7%D8%A1-100095806320994/" target="_blank" class="w-7 h-7 rounded-full bg-white/10 hover:bg-[#1877F2] flex items-center justify-center transition"><i class="fa-brands fa-facebook-f"></i></a>
+      <a href="#" class="w-7 h-7 rounded-full bg-white/10 hover:bg-black flex items-center justify-center transition"><i class="fa-brands fa-x-twitter"></i></a>
+      <a href="#" class="w-7 h-7 rounded-full bg-white/10 hover:bg-[#E1306C] flex items-center justify-center transition"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#" class="w-7 h-7 rounded-full bg-white/10 hover:bg-[#25D366] flex items-center justify-center transition"><i class="fa-brands fa-whatsapp"></i></a>
+      <a href="#" class="w-7 h-7 rounded-full bg-white/10 hover:bg-[#FF0000] flex items-center justify-center transition"><i class="fa-brands fa-youtube"></i></a>
+    </div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<header id="navbar" class="sticky top-0 z-50 bg-white/90 backdrop-blur-xl border-b border-slate-100 transition-all duration-300">
+  <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
+    <a href="#home" class="flex items-center gap-3">
+      <div class="relative">
+        <div class="w-14 h-14 rounded-2xl green-grad pattern-islamic flex items-center justify-center shadow-soft">
+          <span class="text-3xl font-black text-gold-300">ف</span>
+          <span class="absolute -top-1 -left-1 w-5 h-5 gold-grad rounded-full flex items-center justify-center text-[10px] text-fida-950"><i class="fa-solid fa-heart"></i></span>
+        </div>
+      </div>
+      <div>
+        <h1 class="text-xl md:text-2xl font-black text-fida-900 leading-none">مؤسسة فداء</h1>
+        <p class="text-[11px] md:text-xs text-gold-600 font-bold tracking-wide mt-1">التنموية الخيرية | FIDAA FOUNDATION</p>
+      </div>
+    </a>
+    <nav class="hidden lg:flex items-center gap-7 font-bold text-[15px] text-fida-900">
+      <a href="#home" class="nav-link active">الرئيسية</a>
+      <a href="#about" class="nav-link">من نحن</a>
+      <a href="#fields" class="nav-link">مجالاتنا</a>
+      <a href="#projects" class="nav-link">مشاريعنا</a>
+      <a href="#gallery" class="nav-link">معرض الصور</a>
+      <a href="#news" class="nav-link">الأخبار</a>
+      <a href="#contact" class="nav-link">تواصل معنا</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <button onclick="openDonate(null)" class="btn-shine hidden sm:inline-flex items-center gap-2 gold-grad text-fida-950 font-black px-6 py-2.5 rounded-full shadow-lg hover:shadow-glow transition text-sm"><i class="fa-solid fa-hand-holding-heart"></i> تبرع الآن</button>
+      <button id="menuBtn" class="lg:hidden w-11 h-11 rounded-xl bg-fida-900 text-white flex items-center justify-center"><i class="fa-solid fa-bars text-lg"></i></button>
+    </div>
+  </div>
+  <div id="mobileMenu" class="lg:hidden overflow-hidden max-h-0 bg-white border-t border-slate-100">
+    <div class="p-4 grid gap-1 font-bold text-fida-900">
+      <a href="#home" class="p-3 rounded-xl hover:bg-fida-50">الرئيسية</a>
+      <a href="#about" class="p-3 rounded-xl hover:bg-fida-50">من نحن</a>
+      <a href="#fields" class="p-3 rounded-xl hover:bg-fida-50">مجالاتنا</a>
+      <a href="#projects" class="p-3 rounded-xl hover:bg-fida-50">مشاريعنا</a>
+      <a href="#gallery" class="p-3 rounded-xl hover:bg-fida-50">معرض الصور</a>
+      <a href="#news" class="p-3 rounded-xl hover:bg-fida-50">الأخبار</a>
+      <a href="#contact" class="p-3 rounded-xl hover:bg-fida-50">تواصل معنا</a>
+      <button onclick="openDonate(null)" class="mt-2 gold-grad rounded-xl py-3 font-black"><i class="fa-solid fa-hand-holding-heart ml-2"></i>تبرع الآن</button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="home" class="relative min-h-[92vh] flex items-center overflow-hidden bg-fida-950">
+  <div class="absolute inset-0">
+    <div class="hero-slide active"><img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=1600&q=80" class="w-full h-full object-cover" alt=""><div class="absolute inset-0 bg-gradient-to-l from-fida-950 via-fida-950/85 to-fida-900/30"></div></div>
+    <div class="hero-slide"><img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1600&q=80" class="w-full h-full object-cover" alt=""><div class="absolute inset-0 bg-gradient-to-l from-fida-950 via-fida-950/85 to-fida-900/30"></div></div>
+    <div class="hero-slide"><img src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?auto=format&fit=crop&w=1600&q=80" class="w-full h-full object-cover" alt=""><div class="absolute inset-0 bg-gradient-to-l from-fida-950 via-fida-950/85 to-fida-900/30"></div></div>
+    <div class="absolute inset-0 pattern-islamic opacity-60"></div>
+  </div>
+  <div class="absolute top-20 left-10 w-72 h-72 bg-gold-400/20 blur-[100px] rounded-full"></div>
+  <div class="absolute bottom-10 right-10 w-96 h-96 bg-fida-500/30 blur-[120px] rounded-full"></div>
+
+  <div class="relative max-w-7xl mx-auto px-4 py-20 grid lg:grid-cols-2 gap-12 items-center w-full">
+    <div data-aos="fade-left">
+      <div class="inline-flex items-center gap-2 glass rounded-full px-4 py-2 text-sm text-white font-bold"><span class="w-2.5 h-2.5 rounded-full bg-green-400 animate-pulse"></span> مؤسسة أهلية غير ربحية - ترخيص رسمي <span class="gold-grad text-fida-950 text-xs px-2 py-0.5 rounded-full font-black">موثوقة 100%</span></div>
+      <h2 class="mt-6 text-4xl md:text-6xl font-black text-white leading-[1.15]">عطاؤك اليوم ..<br><span class="text-transparent bg-clip-text bg-gradient-to-l from-gold-200 via-gold-400 to-gold-200">حياةٌ لآلاف الأسر</span><br>المحتاجة في اليمن</h2>
+      <p class="mt-5 text-white/75 text-lg leading-relaxed max-w-xl">منذ تأسيسها تعمل <b class="text-white">مؤسسة فداء التنموية الخيرية</b> على إغاثة المتضررين، وكفالة الأيتام، وسقيا الماء، ودعم التعليم والصحة، بشفافية كاملة وتوثيق مصوّر لكل تبرع.</p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <button onclick="openDonate(null)" class="btn-shine gold-grad text-fida-950 font-black px-8 py-4 rounded-2xl shadow-2xl hover:-translate-y-1 transition text-lg"><i class="fa-solid fa-hand-holding-heart ml-2"></i>تبرع الآن</button>
+        <a href="#projects" class="glass text-white font-black px-8 py-4 rounded-2xl hover:bg-white/20 transition text-lg"><i class="fa-solid fa-layer-group ml-2 text-gold-300"></i>استكشف مشاريعنا</a>
+        <button onclick="openVideo()" class="flex items-center gap-3 text-white font-bold group"><span class="relative w-14 h-14 rounded-full bg-white text-fida-800 flex items-center justify-center pulse-ring"><i class="fa-solid fa-play mr-1"></i></span><span class="text-sm text-right leading-tight">شاهد قصتنا<br><b class="text-gold-300">دقيقتان تغيّران نظرتك</b></span></button>
+      </div>
+      <div class="mt-10 grid grid-cols-3 max-w-lg gap-3">
+        <div class="glass rounded-2xl p-4 text-center"><div class="text-2xl md:text-3xl font-black text-gold-300"><span class="counter" data-target="48500">0</span>+</div><div class="text-white/70 text-xs md:text-sm font-bold mt-1">مستفيد سنوياً</div></div>
+        <div class="glass rounded-2xl p-4 text-center"><div class="text-2xl md:text-3xl font-black text-gold-300"><span class="counter" data-target="320">0</span>+</div><div class="text-white/70 text-xs md:text-sm font-bold mt-1">مشروع منفذ</div></div>
+        <div class="glass rounded-2xl p-4 text-center"><div class="text-2xl md:text-3xl font-black text-gold-300"><span class="counter" data-target="1250">0</span>+</div><div class="text-white/70 text-xs md:text-sm font-bold mt-1">يتيم مكفول</div></div>
+      </div>
+    </div>
+    <div class="hidden lg:block" data-aos="fade-right">
+      <div class="relative">
+        <div class="absolute -inset-6 gold-grad opacity-20 blur-3xl rounded-[3rem]"></div>
+        <div class="relative bg-white rounded-[2rem] p-6 shadow-2xl">
+          <div class="flex items-center justify-between">
+            <h3 class="font-black text-fida-900 text-lg"><i class="fa-solid fa-bolt text-gold-500 ml-2"></i>تبرع سريع</h3>
+            <span class="text-xs bg-green-100 text-green-700 px-3 py-1 rounded-full font-bold"><i class="fa-solid fa-shield-halved ml-1"></i>دفع آمن وموثق</span>
+          </div>
+          <div class="mt-4 grid grid-cols-3 gap-2" id="heroAmounts">
+            <button data-amt="5000" class="amount-btn border-2 border-slate-200 rounded-xl py-3 font-black text-fida-900 hover:border-fida-500 transition">5,000</button>
+            <button data-amt="10000" class="amount-btn active border-2 border-slate-200 rounded-xl py-3 font-black text-fida-900 hover:border-fida-500 transition">10,000</button>
+            <button data-amt="25000" class="amount-btn border-2 border-slate-200 rounded-xl py-3 font-black text-fida-900 hover:border-fida-500 transition">25,000</button>
+            <button data-amt="50000" class="amount-btn border-2 border-slate-200 rounded-xl py-3 font-black text-fida-900 hover:border-fida-500 transition">50,000</button>
+            <button data-amt="100000" class="amount-btn border-2 border-slate-200 rounded-xl py-3 font-black text-fida-900 hover:border-fida-500 transition">100,000</button>
+            <button data-amt="custom" class="amount-btn border-2 border-dashed border-gold-500 rounded-xl py-3 font-black text-gold-600">مبلغ آخر</button>
+          </div>
+          <div class="mt-3 hidden" id="heroCustomWrap"><input id="heroCustom" type="number" placeholder="اكتب المبلغ بالريال اليمني" class="w-full border-2 border-slate-200 rounded-xl p-3 font-bold"></div>
+          <div class="mt-3"><select id="heroProject" class="w-full border-2 border-slate-200 rounded-xl p-3 font-bold bg-white"><option>السلة الغذائية الطارئة</option><option>كفالة يتيم شهرية</option><option>سقيا الماء - بئر ارتوازي</option><option>الحقيبة المدرسية</option><option>العمليات الجراحية والعلاج</option><option>إفطار صائم وكسوة العيد</option><option>حيث تشتد الحاجة</option></select></div>
+          <div id="heroImpact" class="mt-3 bg-fida-50 border border-fida-100 rounded-xl p-3 text-sm font-bold text-fida-800 flex items-start gap-2"><i class="fa-solid fa-circle-check text-fida-500 mt-1"></i><span>مبلغ 10,000 ريال = سلة غذائية تكفي أسرة لـ 10 أيام + توثيق بالصور.</span></div>
+          <button onclick="heroDonate()" class="btn-shine mt-4 w-full green-grad text-white font-black py-4 rounded-xl text-lg hover:shadow-soft transition"><i class="fa-solid fa-heart ml-2 text-gold-300"></i>تأكيد التبرع - <span id="heroAmtLabel">10,000</span> ريال</button>
+          <div class="mt-3 flex items-center justify-center gap-4 text-[11px] text-slate-500 font-bold"><span><i class="fa-solid fa-lock ml-1"></i>تشفير آمن</span><span><i class="fa-solid fa-file-signature ml-1"></i>سند رسمي</span><span><i class="fa-solid fa-camera ml-1"></i>توثيق مصور</span></div>
+        </div>
+        <div class="float-anim absolute -top-6 -right-4 bg-white rounded-2xl shadow-card px-4 py-3 flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-green-600"><i class="fa-solid fa-check"></i></div><div><div class="text-xs font-black">تبرع جديد الآن</div><div class="text-[11px] text-slate-500">أ. محمد - 25,000 ريال</div></div></div>
+        <div class="float-anim absolute -bottom-6 -left-4 bg-white rounded-2xl shadow-card px-4 py-3 flex items-center gap-3" style="animation-delay:1.5s"><div class="w-10 h-10 rounded-full gold-grad flex items-center justify-center text-fida-950"><i class="fa-solid fa-star"></i></div><div><div class="text-xs font-black">تقييم المحسنين 4.9/5</div><div class="text-[11px] text-gold-500">★★★★★ <span class="text-slate-400">+2,400 تقييم</span></div></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-2 z-10">
+    <button class="hero-dot dot w-3 h-3 rounded-full bg-white/40" data-i="0"></button>
+    <button class="hero-dot dot w-3 h-3 rounded-full bg-white/40" data-i="1"></button>
+    <button class="hero-dot dot w-3 h-3 rounded-full bg-white/40" data-i="2"></button>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="bg-gold-400 py-3 overflow-hidden border-y-4 border-fida-950" dir="ltr">
+  <div class="marquee-track font-black text-fida-950 text-sm md:text-base" dir="rtl">
+    <div class="flex shrink-0 items-center gap-8 px-4">
+      <span>🤍 وَمَا تُنفِقُوا مِنْ خَيْرٍ فَلِلَّهِ 🤍</span><span>•</span><span>سلة غذائية = 10,000 ريال</span><span>•</span><span>كفالة يتيم = 15,000 ريال شهرياً</span><span>•</span><span>سقيا ماء = صدقة جارية</span><span>•</span><span>تبرعك موثق بالصور والفيديو</span><span>•</span>
+    </div>
+    <div class="flex shrink-0 items-center gap-8 px-4">
+      <span>🤍 وَمَا تُنفِقُوا مِنْ خَيْرٍ فَلِلَّهِ 🤍</span><span>•</span><span>سلة غذائية = 10,000 ريال</span><span>•</span><span>كفالة يتيم = 15,000 ريال شهرياً</span><span>•</span><span>سقيا ماء = صدقة جارية</span><span>•</span><span>تبرعك موثق بالصور والفيديو</span><span>•</span>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about" class="py-20 max-w-7xl mx-auto px-4">
+  <div class="grid lg:grid-cols-2 gap-12 items-center">
+    <div class="relative" data-aos="fade-up">
+      <div class="grid grid-cols-2 gap-4">
+        <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=600&q=80" class="rounded-3xl h-72 w-full object-cover shadow-card" alt="">
+        <img src="https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&w=600&q=80" class="rounded-3xl h-72 w-full object-cover shadow-card mt-8" alt="">
+        <img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&w=600&q=80" class="rounded-3xl h-60 w-full object-cover shadow-card -mt-4" alt="">
+        <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=600&q=80" class="rounded-3xl h-60 w-full object-cover shadow-card mt-4" alt="">
+      </div>
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-36 h-36 green-grad rounded-full border-8 border-[#faf7f0] flex flex-col items-center justify-center text-white shadow-2xl">
+        <span class="text-3xl font-black text-gold-300">+8</span><span class="text-xs font-bold">سنوات من العطاء</span>
+      </div>
+      <div class="absolute -bottom-4 right-4 bg-white rounded-2xl shadow-card px-5 py-3 flex items-center gap-3"><i class="fa-solid fa-certificate text-3xl text-gold-500"></i><div><div class="font-black text-sm">عضو معتمد</div><div class="text-xs text-slate-500">شبكة المنظمات الإنسانية</div></div></div>
+    </div>
+    <div data-aos="fade-up">
+      <span class="inline-flex items-center gap-2 text-fida-600 font-black bg-fida-50 border border-fida-100 px-4 py-1.5 rounded-full text-sm"><i class="fa-solid fa-mosque"></i> من نحن - مؤسسة فداء</span>
+      <h2 class="mt-4 text-3xl md:text-5xl font-black text-fida-950 leading-tight">نفدي الإنسانية <span class="text-gold-500">بالعطاء</span> .. ونصنع الأثر المستدام</h2>
+      <p class="mt-4 text-slate-600 leading-loose">مؤسسة فداء التنموية الخيرية مؤسسة يمنية أهلية غير ربحية، انطلقت لتكون يد العون للمحتاجين في أصعب الظروف. نعمل بمهنية وشفافية في الإغاثة العاجلة والتنمية المستدامة، ونصل إلى القرى النائية والمخيمات التي يصعب الوصول إليها.</p>
+      <div class="mt-6 flex flex-wrap gap-2">
+        <button class="tab-btn active border-2 border-slate-200 px-5 py-2 rounded-full font-black text-sm transition" data-tab="t1">رسالتنا</button>
+        <button class="tab-btn border-2 border-slate-200 px-5 py-2 rounded-full font-black text-sm transition" data-tab="t2">رؤيتنا</button>
+        <button class="tab-btn border-2 border-slate-200 px-5 py-2 rounded-full font-black text-sm transition" data-tab="t3">قيمنا</button>
+        <button class="tab-btn border-2 border-slate-200 px-5 py-2 rounded-full font-black text-sm transition" data-tab="t4">أهدافنا</button>
+      </div>
+      <div class="mt-4 bg-white rounded-2xl border p-5 shadow-sm min-h-[130px]">
+        <div id="t1" class="tab-pane text-slate-600 leading-relaxed"><b class="text-fida-800">رسالتنا:</b> تقديم مساعدات إنسانية وتنموية عاجلة ومستدامة للفئات الأشد احتياجاً بكرامة وعدالة وشفافية، وبناء شراكات فاعلة مع المحسنين والمنظمات.</div>
+        <div id="t2" class="tab-pane hidden text-slate-600 leading-relaxed"><b class="text-fida-800">رؤيتنا:</b> أن نكون المؤسسة اليمنية الرائدة في العمل الخيري التنموي، ومصدر ثقة المحسنين محلياً ودولياً، وصوت المحتاج أينما كان.</div>
+        <div id="t3" class="tab-pane hidden"><div class="grid grid-cols-2 gap-2 text-sm font-bold"><span class="bg-fida-50 rounded-xl p-3"><i class="fa-solid fa-handshake text-fida-600 ml-2"></i>الأمانة والشفافية</span><span class="bg-fida-50 rounded-xl p-3"><i class="fa-solid fa-scale-balanced text-fida-600 ml-2"></i>العدالة والكرامة</span><span class="bg-fida-50 rounded-xl p-3"><i class="fa-solid fa-bolt text-fida-600 ml-2"></i>سرعة الاستجابة</span><span class="bg-fida-50 rounded-xl p-3"><i class="fa-solid fa-leaf text-fida-600 ml-2"></i>الاستدامة والتميز</span></div></div>
+        <div id="t4" class="tab-pane hidden text-slate-600 leading-relaxed"><ul class="space-y-2 text-sm"><li><i class="fa-solid fa-circle-check text-fida-500 ml-2"></i>مكافحة الجوع وسوء التغذية عبر السلال الغذائية والمطابخ الخيرية</li><li><i class="fa-solid fa-circle-check text-fida-500 ml-2"></i>كفالة ورعاية الأيتام تعليمياً وصحياً ومعيشياً</li><li><i class="fa-solid fa-circle-check text-fida-500 ml-2"></i>توفير المياه الصالحة وحفر الآبار</li><li><i class="fa-solid fa-circle-check text-fida-500 ml-2"></i>تمكين المرأة والأسر عبر المشاريع الصغيرة</li></ul></div>
+      </div>
+      <div class="mt-6 grid sm:grid-cols-2 gap-3">
+        <div class="flex items-center gap-3 bg-white rounded-2xl p-4 border shadow-sm"><div class="w-12 h-12 rounded-xl bg-fida-900 text-gold-300 flex items-center justify-center text-xl"><i class="fa-solid fa-file-shield"></i></div><div><div class="font-black text-sm">تقارير موثقة</div><div class="text-xs text-slate-500">صور + فيديو + سندات لكل مشروع</div></div></div>
+        <div class="flex items-center gap-3 bg-white rounded-2xl p-4 border shadow-sm"><div class="w-12 h-12 rounded-xl gold-grad text-fida-950 flex items-center justify-center text-xl"><i class="fa-solid fa-truck-fast"></i></div><div><div class="font-black text-sm">وصول للميدان</div><div class="text-xs text-slate-500">فرق ميدانية في 12 محافظة</div></div></div>
+      </div>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a href="#contact" class="bg-fida-900 text-white px-7 py-3 rounded-xl font-black hover:bg-fida-800 transition">تعرف علينا أكثر</a>
+        <a href="https://www.facebook.com/p/%D9%85%D8%A4%D8%B3%D9%8A%D8%A9-%D9%81%D8%AF%D8%A7%D8%A1-100095806320994/" target="_blank" class="border-2 border-[#1877F2] text-[#1877F2] px-7 py-3 rounded-xl font-black hover:bg-[#1877F2] hover:text-white transition"><i class="fa-brands fa-facebook ml-2"></i>صفحتنا على فيسبوك</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="relative py-16 green-grad pattern-islamic overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 grid grid-cols-2 lg:grid-cols-4 gap-4">
+    <div class="counter-box bg-white/10 backdrop-blur rounded-3xl p-6 text-center border border-white/10" data-aos="zoom-in"><i class="fa-solid fa-bowl-food text-3xl text-gold-300"></i><div class="mt-2 text-3xl md:text-4xl font-black text-white"><span class="counter" data-target="125000">0</span>+</div><div class="text-white/70 font-bold text-sm mt-1">سلة غذائية موزعة</div></div>
+    <div class="counter-box bg-white/10 backdrop-blur rounded-3xl p-6 text-center border border-white/10" data-aos="zoom-in" data-aos-delay="100"><i class="fa-solid fa-droplet text-3xl text-sky-300"></i><div class="mt-2 text-3xl md:text-4xl font-black text-white"><span class="counter" data-target="85">0</span></div><div class="text-white/70 font-bold text-sm mt-1">بئر ومشروع مياه</div></div>
+    <div class="counter-box bg-white/10 backdrop-blur rounded-3xl p-6 text-center border border-white/10" data-aos="zoom-in" data-aos-delay="200"><i class="fa-solid fa-children text-3xl text-gold-300"></i><div class="mt-2 text-3xl md:text-4xl font-black text-white"><span class="counter" data-target="1250">0</span></div><div class="text-white/70 font-bold text-sm mt-1">يتيم ويتيمة مكفولين</div></div>
+    <div class="counter-box bg-white/10 backdrop-blur rounded-3xl p-6 text-center border border-white/10" data-aos="zoom-in" data-aos-delay="300"><i class="fa-solid fa-kit-medical text-3xl text-rose-300"></i><div class="mt-2 text-3xl md:text-4xl font-black text-white"><span class="counter" data-target="9200">0</span>+</div><div class="text-white/70 font-bold text-sm mt-1">تدخل طبي وعلاجي</div></div>
+  </div>
+</section>
+
+<!-- FIELDS -->
+<section id="fields" class="py-20 max-w-7xl mx-auto px-4">
+  <div class="text-center max-w-2xl mx-auto" data-aos="fade-up">
+    <span class="text-gold-600 font-black bg-gold-50 border border-gold-200 px-4 py-1.5 rounded-full text-sm">✦ مجالات عملنا ✦</span>
+    <h2 class="mt-4 text-3xl md:text-5xl font-black text-fida-950">ستة أبواب للخير .. <span class="text-fida-600">اختر بابك إلى الجنة</span></h2>
+    <p class="mt-3 text-slate-500">نعمل في مسارات متكاملة تضمن الكرامة اليوم وتلمس المستقبل</p>
+  </div>
+  <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+    <div class="card-hover bg-white rounded-3xl p-7 border shadow-sm relative overflow-hidden group" data-aos="fade-up"><div class="absolute top-0 right-0 w-28 h-28 bg-orange-100 rounded-bl-[4rem] transition group-hover:scale-125"></div><div class="relative"><div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-orange-400 to-red-500 text-white flex items-center justify-center text-2xl shadow-lg"><i class="fa-solid fa-bowl-food"></i></div><h3 class="mt-4 font-black text-xl text-fida-950">الأمن الغذائي والإغاثة</h3><p class="mt-2 text-slate-500 text-sm leading-relaxed">سلال غذائية، مطابخ خيرية، إفطار صائم، أضاحي، وكفالات شهرية للأسر النازحة والأشد فقراً.</p><div class="mt-4 flex items-center justify-between"><span class="text-xs font-black bg-orange-50 text-orange-600 px-3 py-1 rounded-full">48,500 مستفيد</span><button onclick="openDonate('السلة الغذائية الطارئة')" class="text-fida-600 font-black text-sm hover:gap-3 gap-1 flex items-center transition-all">تبرع <i class="fa-solid fa-arrow-left"></i></button></div></div></div>
+    <div class="card-hover bg-white rounded-3xl p-7 border shadow-sm relative overflow-hidden group" data-aos="fade-up" data-aos-delay="80"><div class="absolute top-0 right-0 w-28 h-28 bg-sky-100 rounded-bl-[4rem] transition group-hover:scale-125"></div><div class="relative"><div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-sky-400 to-blue-600 text-white flex items-center justify-center text-2xl shadow-lg"><i class="fa-solid fa-droplet"></i></div><h3 class="mt-4 font-black text-xl text-fida-950">سقيا الماء وحفر الآبار</h3><p class="mt-2 text-slate-500 text-sm leading-relaxed">حفر آبار ارتوازية، توزيع وايتات ماء، خزانات، ومحطات تحلية. "أفضل الصدقة سقي الماء".</p><div class="mt-4 flex items-center justify-between"><span class="text-xs font-black bg-sky-50 text-sky-600 px-3 py-1 rounded-full">85 مشروع مياه</span><button onclick="openDonate('سقيا الماء - بئر ارتوازي')" class="text-fida-600 font-black text-sm hover:gap-3 gap-1 flex items-center transition-all">تبرع <i class="fa-solid fa-arrow-left"></i></button></div></div></div>
+    <div class="card-hover bg-white rounded-3xl p-7 border shadow-sm relative overflow-hidden group" data-aos="fade-up" data-aos-delay="160"><div class="absolute top-0 right-0 w-28 h-28 bg-pink-100 rounded-bl-[4rem] transition group-hover:scale-125"></div><div class="relative"><div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-pink-400 to-rose-600 text-white flex items-center justify-center text-2xl shadow-lg"><i class="fa-solid fa-child-reaching"></i></div><h3 class="mt-4 font-black text-xl text-fida-950">كفالة ورعاية الأيتام</h3><p class="mt-2 text-slate-500 text-sm leading-relaxed">كفالة شهرية 15,000 ريال تشمل الغذاء والكسوة والتعليم والرعاية الصحية والنفسية.</p><div class="mt-4 flex items-center justify-between"><span class="text-xs font-black bg-pink-50 text-pink-600 px-3 py-1 rounded-full">1,250 يتيم مكفول</span><button onclick="openDonate('كفالة يتيم شهرية')" class="text-fida-600 font-black text-sm hover:gap-3 gap-1 flex items-center transition-all">اكفل يتيماً <i class="fa-solid fa-arrow-left"></i></button></div></div></div>
+    <div class="card-hover bg-white rounded-3xl p-7 border shadow-sm relative overflow-hidden group" data-aos="fade-up"><div class="absolute top-0 right-0 w-28 h-28 bg-violet-100 rounded-bl-[4rem] transition group-hover:scale-125"></div><div class="relative"><div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-violet-500 to-purple-700 text-white flex items-center justify-center text-2xl shadow-lg"><i class="fa-solid fa-graduation-cap"></i></div><h3 class="mt-4 font-black text-xl text-fida-950">التعليم وبناء الأجيال</h3><p class="mt-2 text-slate-500 text-sm leading-relaxed">حقائب مدرسية، رواتب معلمين، ترميم مدارس، منح جامعية، ومراكز تحفيظ القرآن.</p><div class="mt-4 flex items-center justify-between"><span class="text-xs font-black bg-violet-50 text-violet-600 px-3 py-1 rounded-full">12,000 طالب مدعوم</span><button onclick="openDonate('الحقيبة المدرسية')" class="text-fida-600 font-black text-sm hover:gap-3 gap-1 flex items-center transition-all">تبرع <i class="fa-solid fa-arrow-left"></i></button></div></div></div>
+    <div class="card-hover bg-white rounded-3xl p-7 border shadow-sm relative overflow-hidden group" data-aos="fade-up" data-aos-delay="80"><div class="absolute top-0 right-0 w-28 h-28 bg-emerald-100 rounded-bl-[4rem] transition group-hover:scale-125"></div><div class="relative"><div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-400 to-teal-700 text-white flex items-center justify-center text-2xl shadow-lg"><i class="fa-solid fa-stethoscope"></i></div><h3 class="mt-4 font-black text-xl text-fida-950">الصحة وإنقاذ الأرواح</h3><p class="mt-2 text-slate-500 text-sm leading-relaxed">عمليات جراحية، أدوية مزمنة، قوافل طبية، دعم مستشفيات، وعلاج سوء التغذية.</p><div class="mt-4 flex items-center justify-between"><span class="text-xs font-black bg-emerald-50 text-emerald-600 px-3 py-1 rounded-full">9,200 تدخل طبي</span><button onclick="openDonate('العمليات الجراحية والعلاج')" class="text-fida-600 font-black text-sm hover:gap-3 gap-1 flex items-center transition-all">تبرع <i class="fa-solid fa-arrow-left"></i></button></div></div></div>
+    <div class="card-hover bg-white rounded-3xl p-7 border shadow-sm relative overflow-hidden group" data-aos="fade-up" data-aos-delay="160"><div class="absolute top-0 right-0 w-28 h-28 bg-amber-100 rounded-bl-[4rem] transition group-hover:scale-125"></div><div class="relative"><div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-400 to-orange-600 text-white flex items-center justify-center text-2xl shadow-lg"><i class="fa-solid fa-hand-holding-dollar"></i></div><h3 class="mt-4 font-black text-xl text-fida-950">التمكين والتنمية</h3><p class="mt-2 text-slate-500 text-sm leading-relaxed">مشاريع صغيرة للأرامل، تمكين المرأة، تدريب مهني للشباب، ودعم المزارعين.</p><div class="mt-4 flex items-center justify-between"><span class="text-xs font-black bg-amber-50 text-amber-600 px-3 py-1 rounded-full">640 أسرة مُمكنة</span><button onclick="openDonate('حيث تشتد الحاجة')" class="text-fida-600 font-black text-sm hover:gap-3 gap-1 flex items-center transition-all">تبرع <i class="fa-solid fa-arrow-left"></i></button></div></div></div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="py-20 bg-white border-y border-slate-100 pattern-gold">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4" data-aos="fade-up">
+      <div><span class="text-fida-600 font-black bg-fida-50 border border-fida-100 px-4 py-1.5 rounded-full text-sm">◉ مشاريعنا الجارية</span><h2 class="mt-4 text-3xl md:text-5xl font-black text-fida-950">مشاريع تحتاج دعمك <span class="text-gold-500">اليوم</span></h2><p class="mt-2 text-slate-500">اختر مشروعاً وتابع نسبة الإنجاز لحظة بلحظة - كل ريال يقرّبنا من الهدف</p></div>
+      <div class="flex items-center gap-2 text-sm font-bold text-slate-500"><span class="w-3 h-3 rounded-full bg-green-500 animate-pulse"></span> يتم التحديث مباشرة من الميدان</div>
+    </div>
+    <div class="mt-6 flex flex-wrap gap-2" data-aos="fade-up">
+      <button class="filter-btn active border-2 border-slate-200 px-5 py-2 rounded-full font-black text-sm transition" data-f="all">الكل</button>
+      <button class="filter-btn border-2 border-slate-200 px-5 py-2 rounded-full font-black text-sm transition" data-f="food">غذاء وإغاثة</button>
+      <button class="filter-btn border-2 border-slate-200 px-5 py-2 rounded-full font-black text-sm transition" data-f="water">سقيا وماء</button>
+      <button class="filter-btn border-2 border-slate-200 px-5 py-2 rounded-full font-black text-sm transition" data-f="orphan">أيتام</button>
+      <button class="filter-btn border-2 border-slate-200 px-5 py-2 rounded-full font-black text-sm transition" data-f="edu">تعليم</button>
+      <button class="filter-btn border-2 border-slate-200 px-5 py-2 rounded-full font-black text-sm transition" data-f="health">صحة</button>
+    </div>
+    <div id="projectGrid" class="mt-8 grid md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+    <div class="mt-10 bg-fida-950 rounded-3xl p-6 md:p-10 grid lg:grid-cols-2 gap-8 items-center pattern-islamic" data-aos="fade-up">
+      <div><h3 class="text-2xl md:text-3xl font-black text-white">أين تذهب تبرعاتكم؟ <span class="text-gold-300">شفافية كاملة</span></h3><p class="text-white/60 mt-2 text-sm leading-relaxed">نلتزم بأن تصل 92% من التبرعات مباشرة للمستفيدين، و 8% فقط مصاريف تشغيلية وإدارية. اطلع على التوزيع:</p><div class="mt-4 grid grid-cols-3 gap-3 text-center"><div class="bg-white/10 rounded-2xl p-3"><div class="font-black text-gold-300 text-xl">92%</div><div class="text-[11px] text-white/70 font-bold">للمستفيد مباشرة</div></div><div class="bg-white/10 rounded-2xl p-3"><div class="font-black text-white text-xl">5%</div><div class="text-[11px] text-white/70 font-bold">تشغيل ميداني</div></div><div class="bg-white/10 rounded-2xl p-3"><div class="font-black text-white text-xl">3%</div><div class="text-[11px] text-white/70 font-bold">إدارة وتوثيق</div></div></div></div>
+      <div class="bg-white rounded-3xl p-5"><canvas id="distChart" height="220"></canvas></div>
+    </div>
+  </div>
+</section>
+
+<!-- DONATE -->
+<section id="donate" class="py-20 max-w-7xl mx-auto px-4">
+  <div class="grid lg:grid-cols-5 gap-6">
+    <div class="lg:col-span-3 bg-white rounded-[2rem] border shadow-card overflow-hidden" data-aos="fade-left">
+      <div class="green-grad pattern-islamic p-7 flex items-center justify-between">
+        <div><h3 class="text-2xl font-black text-white"><i class="fa-solid fa-hand-holding-heart text-gold-300 ml-2"></i>نموذج التبرع الإلكتروني</h3><p class="text-white/60 text-sm mt-1">املأ البيانات وسيتواصل معك فريقنا لتأكيد الاستلام والتوثيق</p></div>
+        <div class="hidden sm:flex w-16 h-16 rounded-2xl gold-grad items-center justify-center text-3xl">🤲</div>
+      </div>
+      <div class="p-7">
+        <div class="flex bg-slate-100 rounded-xl p-1 font-black text-sm mb-5"><button id="tabOnce" onclick="setFreq('once')" class="flex-1 py-2.5 rounded-lg bg-fida-900 text-white transition">تبرع لمرة واحدة</button><button id="tabMonthly" onclick="setFreq('monthly')" class="flex-1 py-2.5 rounded-lg text-slate-500 transition">تبرع شهري مستدام 🌱</button></div>
+        <label class="font-black text-sm text-fida-900">اختر المشروع</label>
+        <select id="dProject" class="mt-2 w-full border-2 border-slate-200 rounded-xl p-3.5 font-bold bg-sand"><option>السلة الغذائية الطارئة</option><option>كفالة يتيم شهرية</option><option>سقيا الماء - بئر ارتوازي</option><option>الحقيبة المدرسية</option><option>العمليات الجراحية والعلاج</option><option>إفطار صائم وكسوة العيد</option><option>صدقة جارية - وقف فداء</option><option>حيث تشتد الحاجة</option></select>
+        <label class="font-black text-sm text-fida-900 mt-5 block">مبلغ التبرع (ريال يمني)</label>
+        <div class="mt-2 grid grid-cols-3 sm:grid-cols-6 gap-2" id="donAmounts">
+          <button data-amt="5000" class="amount-btn border-2 border-slate-200 rounded-xl py-2.5 font-black text-sm">5K</button>
+          <button data-amt="10000" class="amount-btn active border-2 border-slate-200 rounded-xl py-2.5 font-black text-sm">10K</button>
+          <button data-amt="25000" class="amount-btn border-2 border-slate-200 rounded-xl py-2.5 font-black text-sm">25K</button>
+          <button data-amt="50000" class="amount-btn border-2 border-slate-200 rounded-xl py-2.5 font-black text-sm">50K</button>
+          <button data-amt="100000" class="amount-btn border-2 border-slate-200 rounded-xl py-2.5 font-black text-sm">100K</button>
+          <button data-amt="500000" class="amount-btn border-2 border-slate-200 rounded-xl py-2.5 font-black text-sm">500K</button>
+        </div>
+        <div class="mt-3 relative"><input id="dAmount" type="number" value="10000" class="w-full border-2 border-slate-200 rounded-xl p-3.5 font-black text-lg text-fida-900 pr-12"><span class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 font-bold text-sm">YER</span></div>
+        <div id="impactBox" class="mt-3 bg-gradient-to-l from-gold-50 to-amber-50 border border-gold-200 rounded-xl p-4 text-sm font-bold text-amber-900 flex gap-2"><i class="fa-solid fa-lightbulb text-gold-500 mt-0.5 text-lg"></i><span id="impactText">تبرعك بـ 10,000 ريال يوفر سلة غذائية متكاملة لأسرة نازحة.</span></div>
+        <div class="mt-5 grid sm:grid-cols-2 gap-3">
+          <input id="dName" placeholder="الاسم الكريم *" class="border-2 border-slate-200 rounded-xl p-3.5 font-bold">
+          <input id="dPhone" placeholder="رقم الهاتف / واتساب *" dir="ltr" class="border-2 border-slate-200 rounded-xl p-3.5 font-bold text-left">
+        </div>
+        <label class="font-black text-sm text-fida-900 mt-5 block">طريقة الدفع / التحويل</label>
+        <div class="mt-2 grid grid-cols-2 sm:grid-cols-4 gap-2">
+          <button class="pay-btn active border-2 border-slate-200 rounded-xl p-3 text-center transition" data-pay="الكريمي"><i class="fa-solid fa-building-columns text-fida-600 text-xl"></i><div class="text-xs font-black mt-1">الكريمي</div></button>
+          <button class="pay-btn border-2 border-slate-200 rounded-xl p-3 text-center transition" data-pay="أم فلوس"><i class="fa-solid fa-mobile-screen text-orange-500 text-xl"></i><div class="text-xs font-black mt-1">أم فلوس</div></button>
+          <button class="pay-btn border-2 border-slate-200 rounded-xl p-3 text-center transition" data-pay="OneCash"><i class="fa-solid fa-wallet text-emerald-500 text-xl"></i><div class="text-xs font-black mt-1">ون كاش</div></button>
+          <button class="pay-btn border-2 border-slate-200 rounded-xl p-3 text-center transition" data-pay="حوالة"><i class="fa-solid fa-money-bill-transfer text-gold-600 text-xl"></i><div class="text-xs font-black mt-1">حوالة / نقدي</div></button>
+        </div>
+        <div class="mt-4 bg-slate-50 border rounded-xl p-4 flex flex-wrap items-center justify-between gap-3">
+          <div class="text-sm font-bold text-slate-600">حساب المؤسسة - الكريمي: <span class="font-black text-fida-900" dir="ltr">3012 4455 66</span></div>
+          <button onclick="copyAcc()" class="text-xs font-black bg-fida-900 text-white px-4 py-2 rounded-lg hover:bg-fida-700 transition"><i class="fa-solid fa-copy ml-1"></i>نسخ الرقم</button>
+        </div>
+        <label class="mt-4 flex items-start gap-2 text-xs text-slate-500 font-bold cursor-pointer"><input id="dHide" type="checkbox" class="mt-1 w-4 h-4 accent-[#0e6b5e]"> أرغب أن يكون تبرعي سرياً (صدقة السر) ولا يُعلن اسمي في قوائم المتبرعين</label>
+        <button onclick="submitDonation()" class="btn-shine mt-5 w-full gold-grad font-black py-4 rounded-2xl text-lg text-fida-950 shadow-lg hover:-translate-y-0.5 transition"><i class="fa-solid fa-paper-plane ml-2"></i>تأكيد التبرع الآن</button>
+        <p class="mt-3 text-center text-xs text-slate-400 font-bold">بالضغط على تأكيد سيتواصل معك فريقنا خلال دقائق لإتمام الاستلام وإرسال السند والتوثيق</p>
+      </div>
+    </div>
+    <div class="lg:col-span-2 space-y-6">
+      <div class="bg-fida-950 rounded-[2rem] p-7 pattern-islamic relative overflow-hidden" data-aos="fade-right">
+        <div class="absolute -top-10 -left-10 w-40 h-40 bg-gold-400/20 blur-3xl rounded-full"></div>
+        <h3 class="text-white font-black text-xl"><i class="fa-solid fa-calculator text-gold-300 ml-2"></i>حاسبة الزكاة الشرعية</h3>
+        <p class="text-white/50 text-xs mt-1 font-bold">احسب زكاتك بدقة وادفعها لمستحقيها عبر المؤسسة</p>
+        <div class="mt-4 space-y-3">
+          <div><label class="text-white/80 text-xs font-black">النقد والأرصدة البنكية (ريال)</label><input id="zCash" type="number" value="1000000" oninput="calcZakat()" class="mt-1 w-full bg-white/10 border border-white/20 rounded-xl p-3 text-white font-black"></div>
+          <div><label class="text-white/80 text-xs font-black">قيمة الذهب والفضة (ريال)</label><input id="zGold" type="number" value="0" oninput="calcZakat()" class="mt-1 w-full bg-white/10 border border-white/20 rounded-xl p-3 text-white font-black"></div>
+          <div><label class="text-white/80 text-xs font-black">الديون المستحقة عليك (ريال)</label><input id="zDebt" type="number" value="0" oninput="calcZakat()" class="mt-1 w-full bg-white/10 border border-white/20 rounded-xl p-3 text-white font-black"></div>
+          <div class="bg-gradient-to-l from-gold-300 to-gold-500 rounded-2xl p-4 text-center"><div class="text-xs font-black text-fida-950">مقدار الزكاة الواجبة (2.5%)</div><div id="zResult" class="text-3xl font-black text-fida-950 mt-1">25,000 ريال</div><button onclick="zakatDonate()" class="mt-2 bg-fida-950 text-white text-sm font-black px-6 py-2 rounded-full hover:bg-fida-800 transition">ادفع زكاتي عبر فداء</button></div>
+          <p class="text-[11px] text-white/40 font-bold leading-relaxed">* النصاب يعادل 85 جرام ذهب. تُصرف الزكاة في مصارفها الشرعية الثمانية بإشراف لجنة شرعية.</p>
+        </div>
+      </div>
+      <div class="bg-white rounded-[2rem] p-7 border shadow-card" data-aos="fade-right" data-aos-delay="100">
+        <h3 class="font-black text-fida-950 text-lg"><i class="fa-solid fa-trophy text-gold-500 ml-2"></i>أحدث تبرعات المحسنين <span class="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full">مباشر</span></h3>
+        <div id="donorFeed" class="mt-4 space-y-3"></div>
+        <div class="mt-4 bg-fida-50 rounded-xl p-3 text-center text-sm font-black text-fida-800">إجمالي ما جُمع هذا الشهر: <span class="text-gold-600 text-lg">18,450,000</span> ريال</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOW -->
+  <div class="mt-12 grid md:grid-cols-4 gap-4">
+    <div class="text-center bg-white rounded-3xl p-6 border" data-aos="fade-up"><div class="w-14 h-14 mx-auto rounded-2xl green-grad text-white flex items-center justify-center text-2xl font-black">1</div><h4 class="mt-3 font-black">اختر وتبرع</h4><p class="text-xs text-slate-500 mt-1">عبر النموذج أو الحوالة المباشرة</p></div>
+    <div class="text-center bg-white rounded-3xl p-6 border" data-aos="fade-up" data-aos-delay="80"><div class="w-14 h-14 mx-auto rounded-2xl gold-grad text-fida-950 flex items-center justify-center text-2xl font-black">2</div><h4 class="mt-3 font-black">نستلم ونوثق</h4><p class="text-xs text-slate-500 mt-1">سند رسمي وإشعار استلام فوري</p></div>
+    <div class="text-center bg-white rounded-3xl p-6 border" data-aos="fade-up" data-aos-delay="160"><div class="w-14 h-14 mx-auto rounded-2xl bg-fida-900 text-white flex items-center justify-center text-2xl"><i class="fa-solid fa-truck-fast"></i></div><h4 class="mt-3 font-black">ننفذ ميدانياً</h4><p class="text-xs text-slate-500 mt-1">فرقنا توزع بتصوير وتوثيق</p></div>
+    <div class="text-center bg-white rounded-3xl p-6 border" data-aos="fade-up" data-aos-delay="240"><div class="w-14 h-14 mx-auto rounded-2xl bg-gradient-to-br from-emerald-400 to-teal-600 text-white flex items-center justify-center text-2xl"><i class="fa-solid fa-award"></i></div><h4 class="mt-3 font-black">يصلك التقرير</h4><p class="text-xs text-slate-500 mt-1">صور وفيديو لحظة التسليم باسمك</p></div>
+  </div>
+</section>
+
+<!-- STORIES -->
+<section class="py-20 bg-fida-950 pattern-islamic relative overflow-hidden">
+  <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-fida-500/20 blur-[130px] rounded-full"></div>
+  <div class="max-w-6xl mx-auto px-4 relative">
+    <div class="text-center" data-aos="fade-up"><span class="text-gold-300 font-black bg-white/10 border border-white/15 px-4 py-1.5 rounded-full text-sm">❝ قصص غيّرتها تبرعاتكم ❞</span><h2 class="mt-4 text-3xl md:text-5xl font-black text-white">وجوه تبتسم <span class="text-gold-300">بفضلكم بعد الله</span></h2></div>
+    <div class="mt-10 relative" data-aos="fade-up">
+      <div id="storyBox" class="bg-white rounded-[2rem] overflow-hidden shadow-2xl"></div>
+      <div class="mt-6 flex items-center justify-center gap-4">
+        <button onclick="storyGo(-1)" class="w-12 h-12 rounded-full glass text-white hover:bg-gold-400 hover:text-fida-950 transition"><i class="fa-solid fa-arrow-right"></i></button>
+        <div class="flex gap-2" id="storyDots"></div>
+        <button onclick="storyGo(1)" class="w-12 h-12 rounded-full glass text-white hover:bg-gold-400 hover:text-fida-950 transition"><i class="fa-solid fa-arrow-left"></i></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" class="py-20 max-w-7xl mx-auto px-4">
+  <div class="text-center" data-aos="fade-up"><span class="text-fida-600 font-black bg-fida-50 border px-4 py-1.5 rounded-full text-sm">📸 من الميدان</span><h2 class="mt-4 text-3xl md:text-5xl font-black text-fida-950">شاهد أثرك <span class="text-gold-500">بعينك</span></h2><p class="text-slate-500 mt-2">اضغط على أي صورة لعرضها بحجم كامل - جميعها من مشاريعنا الفعلية</p></div>
+  <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-3" id="galleryGrid" data-aos="fade-up"></div>
+</section>
+
+<!-- NEWS + VOLUNTEER -->
+<section id="news" class="py-20 bg-white border-y">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="flex items-end justify-between flex-wrap gap-3" data-aos="fade-up"><div><span class="text-fida-600 font-black bg-fida-50 px-4 py-1.5 rounded-full text-sm border">📰 آخر الأخبار والأنشطة</span><h2 class="mt-4 text-3xl md:text-4xl font-black text-fida-950">تابع جديد المؤسسة</h2></div><a href="https://www.facebook.com/p/%D9%85%D8%A4%D8%B3%D9%8A%D8%A9-%D9%81%D8%AF%D8%A7%D8%A1-100095806320994/" target="_blank" class="text-sm font-black text-[#1877F2] border-2 border-[#1877F2] px-5 py-2 rounded-full hover:bg-[#1877F2] hover:text-white transition"><i class="fa-brands fa-facebook ml-2"></i>كل الأخبار على فيسبوك</a></div>
+    <div class="mt-8 grid md:grid-cols-3 gap-6" id="newsGrid"></div>
+
+    <div class="mt-14 grid lg:grid-cols-2 gap-6 items-stretch">
+      <div class="green-grad pattern-islamic rounded-[2rem] p-8 md:p-10 relative overflow-hidden" data-aos="fade-left">
+        <div class="absolute -bottom-16 -left-16 w-64 h-64 bg-gold-400/20 blur-3xl rounded-full"></div>
+        <span class="bg-gold-400 text-fida-950 text-xs font-black px-3 py-1 rounded-full">🤝 انضم لفريق فداء التطوعي - 850 متطوع</span>
+        <h3 class="mt-4 text-3xl md:text-4xl font-black text-white leading-tight">وقتك ومهارتك ..<br>صدقة لا تنقطع</h3>
+        <p class="mt-3 text-white/70 leading-relaxed">نحتاج متطوعين ميدانيين، مصورين، مصممين، أطباء، معلمين، ومسوقين إلكترونيين. سجل الآن واحصل على شهادة تطوع معتمدة وتدريب مجاني.</p>
+        <div class="mt-5 grid grid-cols-3 gap-2 text-center">
+          <div class="glass rounded-xl p-3"><i class="fa-solid fa-camera text-gold-300 text-xl"></i><div class="text-white text-xs font-black mt-1">توثيق ميداني</div></div>
+          <div class="glass rounded-xl p-3"><i class="fa-solid fa-truck text-gold-300 text-xl"></i><div class="text-white text-xs font-black mt-1">توزيع إغاثي</div></div>
+          <div class="glass rounded-xl p-3"><i class="fa-solid fa-laptop text-gold-300 text-xl"></i><div class="text-white text-xs font-black mt-1">عمل عن بُعد</div></div>
+        </div>
+      </div>
+      <div class="bg-sand border rounded-[2rem] p-8" data-aos="fade-right">
+        <h3 class="font-black text-xl text-fida-950"><i class="fa-solid fa-id-card text-fida-600 ml-2"></i>استمارة التطوع</h3>
+        <div class="mt-4 grid sm:grid-cols-2 gap-3">
+          <input id="vName" placeholder="الاسم الكامل *" class="border-2 border-white bg-white rounded-xl p-3 font-bold shadow-sm">
+          <input id="vPhone" placeholder="رقم الهاتف *" dir="ltr" class="border-2 border-white bg-white rounded-xl p-3 font-bold shadow-sm text-left">
+          <select id="vCity" class="border-2 border-white bg-white rounded-xl p-3 font-bold shadow-sm"><option>صنعاء</option><option>عدن</option><option>تعز</option><option>الحديدة</option><option>إب</option><option>ذمار</option><option>حضرموت</option><option>محافظة أخرى / عن بُعد</option></select>
+          <select id="vSkill" class="border-2 border-white bg-white rounded-xl p-3 font-bold shadow-sm"><option>توزيع ميداني</option><option>تصوير وتوثيق</option><option>تصميم ومونتاج</option><option>تسويق إلكتروني</option><option>طبي / تمريض</option><option>تعليم وتدريب</option><option>إدارة وتنظيم</option></select>
+        </div>
+        <textarea id="vMsg" rows="3" placeholder="لماذا تريد التطوع معنا؟ (اختياري)" class="mt-3 w-full border-2 border-white bg-white rounded-xl p-3 font-bold shadow-sm"></textarea>
+        <button onclick="submitVolunteer()" class="mt-4 w-full bg-fida-900 text-white font-black py-4 rounded-xl hover:bg-fida-700 transition btn-shine"><i class="fa-solid fa-heart ml-2 text-gold-300"></i>إرسال طلب التطوع</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="py-20 max-w-4xl mx-auto px-4">
+  <div class="text-center" data-aos="fade-up"><span class="text-gold-600 font-black bg-gold-50 border border-gold-200 px-4 py-1.5 rounded-full text-sm">❓ أسئلة شائعة</span><h2 class="mt-4 text-3xl md:text-5xl font-black text-fida-950">عندك سؤال؟ <span class="text-fida-600">لدينا الجواب</span></h2></div>
+  <div class="mt-8 space-y-3" id="faqBox" data-aos="fade-up"></div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="py-20 bg-fida-950 pattern-islamic">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="text-center"><span class="text-gold-300 font-black bg-white/10 px-4 py-1.5 rounded-full text-sm border border-white/10">📞 تواصل معنا</span><h2 class="mt-4 text-3xl md:text-5xl font-black text-white">نسعد بخدمتك <span class="text-gold-300">في أي وقت</span></h2></div>
+    <div class="mt-10 grid lg:grid-cols-3 gap-6">
+      <div class="space-y-4">
+        <div class="bg-white/10 backdrop-blur border border-white/10 rounded-2xl p-5 flex gap-4"><div class="w-12 h-12 rounded-xl gold-grad flex items-center justify-center text-fida-950 text-xl shrink-0"><i class="fa-solid fa-location-dot"></i></div><div><div class="text-white font-black">العنوان الرئيسي</div><div class="text-white/60 text-sm mt-1">صنعاء - شارع حدة - جوار حديقة السبعين<br>السبت - الخميس: 8ص - 8م</div></div></div>
+        <div class="bg-white/10 backdrop-blur border border-white/10 rounded-2xl p-5 flex gap-4"><div class="w-12 h-12 rounded-xl bg-green-500 flex items-center justify-center text-white text-xl shrink-0"><i class="fa-solid fa-phone"></i></div><div><div class="text-white font-black">اتصل أو واتساب</div><div class="text-white/60 text-sm mt-1" dir="ltr">+967 777 123 456<br>+967 1 234 567</div><div class="mt-2 flex gap-2"><a href="#" class="text-xs font-black bg-[#25D366] text-white px-4 py-2 rounded-full"><i class="fa-brands fa-whatsapp ml-1"></i>واتساب</a><a href="tel:+967777123456" class="text-xs font-black bg-white text-fida-900 px-4 py-2 rounded-full"><i class="fa-solid fa-phone ml-1"></i>اتصال</a></div></div></div>
+        <div class="bg-white/10 backdrop-blur border border-white/10 rounded-2xl p-5 flex gap-4"><div class="w-12 h-12 rounded-xl bg-[#1877F2] flex items-center justify-center text-white text-xl shrink-0"><i class="fa-brands fa-facebook-f"></i></div><div><div class="text-white font-black">صفحتنا الرسمية</div><div class="text-white/60 text-sm mt-1">تابع البثوث والتوزيعات المباشرة</div><a href="https://www.facebook.com/p/%D9%85%D8%A4%D8%B3%D9%8A%D8%A9-%D9%81%D8%AF%D8%A7%D8%A1-100095806320994/" target="_blank" class="mt-2 inline-block text-xs font-black bg-[#1877F2] text-white px-4 py-2 rounded-full">زيارة صفحة مؤسسة فداء <i class="fa-solid fa-up-left-from-square mr-1"></i></a></div></div>
+      </div>
+      <div class="bg-white rounded-3xl p-7">
+        <h3 class="font-black text-xl text-fida-950">أرسل رسالتك 📩</h3><p class="text-xs text-slate-500 font-bold mt-1">استفسار، اقتراح، طلب مساعدة، أو شراكة - نرد خلال 24 ساعة</p>
+        <div class="mt-4 grid sm:grid-cols-2 gap-3"><input id="cName" placeholder="الاسم *" class="border-2 border-slate-200 rounded-xl p-3 font-bold"><input id="cPhone" placeholder="رقم الهاتف *" class="border-2 border-slate-200 rounded-xl p-3 font-bold"></div>
+        <select id="cType" class="mt-3 w-full border-2 border-slate-200 rounded-xl p-3 font-bold"><option>استفسار عن التبرع</option><option>طلب مساعدة إنسانية</option><option>شراكة أو كفالة مشروع</option><option>اقتراح أو شكوى</option><option>أخرى</option></select>
+        <textarea id="cMsg" rows="4" placeholder="اكتب رسالتك هنا... *" class="mt-3 w-full border-2 border-slate-200 rounded-xl p-3 font-bold"></textarea>
+        <button onclick="submitContact()" class="mt-4 w-full green-grad text-white font-black py-3.5 rounded-xl btn-shine"><i class="fa-solid fa-paper-plane ml-2 text-gold-300"></i>إرسال الرسالة</button>
+      </div>
+      <div class="rounded-3xl overflow-hidden border border-white/10 min-h-[350px] relative bg-fida-900">
+        <iframe src="https://www.google.com/maps?q=Sanaa+Yemen&output=embed" class="absolute inset-0 w-full h-full" style="border:0;filter:grayscale(.2)" loading="lazy"></iframe>
+        <div class="absolute bottom-4 right-4 left-4 bg-white rounded-2xl p-4 flex items-center gap-3 shadow-2xl"><div class="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center text-red-500"><i class="fa-solid fa-location-dot"></i></div><div class="text-xs font-black">مؤسسة فداء - صنعاء<div class="text-slate-500 font-bold">اضغط للتكبير والاتجاهات</div></div></div>
+      </div>
+    </div>
+    <div class="mt-8 bg-gradient-to-l from-gold-300 via-gold-400 to-gold-300 rounded-[2rem] p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-6" data-aos="zoom-in">
+      <div><h3 class="text-2xl md:text-4xl font-black text-fida-950">كن سبباً في إطعام جائع الليلة 🌙</h3><p class="text-fida-900/70 font-bold mt-2">قال ﷺ: "ما نقص مال من صدقة" - تبرعك يصل اليوم قبل الغد</p></div>
+      <div class="flex flex-wrap gap-3"><button onclick="openDonate(null)" class="bg-fida-950 text-white font-black px-8 py-4 rounded-2xl hover:scale-105 transition shadow-2xl"><i class="fa-solid fa-hand-holding-heart ml-2 text-gold-300"></i>تبرع الآن</button><a href="#" class="bg-white/60 border-2 border-fida-950/20 font-black px-8 py-4 rounded-2xl hover:bg-white transition"><i class="fa-solid fa-share-nodes ml-2"></i>شارك الأجر</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-[#041614] text-white pt-14 pb-6 pattern-islamic">
+  <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <div><div class="flex items-center gap-3"><div class="w-12 h-12 rounded-xl gold-grad flex items-center justify-center text-2xl font-black text-fida-950">ف</div><div><div class="font-black text-xl">مؤسسة فداء</div><div class="text-[11px] text-gold-300 font-bold">التنموية الخيرية - اليمن</div></div></div><p class="mt-4 text-white/60 text-sm leading-relaxed">مؤسسة أهلية غير ربحية تعمل في الإغاثة والتنمية منذ 2017. عطاؤكم أمانة، وتوثيقنا عهد.</p><div class="mt-4 flex gap-2"><a href="https://www.facebook.com/p/%D9%85%D8%A4%D8%B3%D9%8A%D8%A9-%D9%81%D8%AF%D8%A7%D8%A1-100095806320994/" target="_blank" class="w-10 h-10 rounded-xl bg-white/10 hover:bg-[#1877F2] flex items-center justify-center transition"><i class="fa-brands fa-facebook-f"></i></a><a href="#" class="w-10 h-10 rounded-xl bg-white/10 hover:bg-black flex items-center justify-center transition"><i class="fa-brands fa-x-twitter"></i></a><a href="#" class="w-10 h-10 rounded-xl bg-white/10 hover:bg-[#E1306C] flex items-center justify-center transition"><i class="fa-brands fa-instagram"></i></a><a href="#" class="w-10 h-10 rounded-xl bg-white/10 hover:bg-[#25D366] flex items-center justify-center transition"><i class="fa-brands fa-whatsapp"></i></a><a href="#" class="w-10 h-10 rounded-xl bg-white/10 hover:bg-[#FF0000] flex items-center justify-center transition"><i class="fa-brands fa-youtube"></i></a></div></div>
+    <div><h4 class="font-black text-gold-300">روابط سريعة</h4><ul class="mt-4 space-y-2.5 text-sm text-white/70 font-bold"><li><a href="#about" class="hover:text-gold-300 transition">› من نحن</a></li><li><a href="#projects" class="hover:text-gold-300 transition">› مشاريعنا الجارية</a></li><li><a href="#donate" class="hover:text-gold-300 transition">› تبرع الآن</a></li><li><a href="#news" class="hover:text-gold-300 transition">› الأخبار والأنشطة</a></li><li><a href="#" class="hover:text-gold-300 transition">› طلب مساعدة</a></li><li><a href="#" class="hover:text-gold-300 transition">› سياسة الشفافية</a></li></ul></div>
+    <div><h4 class="font-black text-gold-300">مشاريعنا</h4><ul class="mt-4 space-y-2.5 text-sm text-white/70 font-bold"><li><button onclick="openDonate('السلة الغذائية الطارئة')" class="hover:text-gold-300 transition">› السلة الغذائية</button></li><li><button onclick="openDonate('كفالة يتيم شهرية')" class="hover:text-gold-300 transition">› كفالة الأيتام</button></li><li><button onclick="openDonate('سقيا الماء - بئر ارتوازي')" class="hover:text-gold-300 transition">› سقيا الماء</button></li><li><button onclick="openDonate('العمليات الجراحية والعلاج')" class="hover:text-gold-300 transition">› العلاج والعمليات</button></li><li><button onclick="openDonate('صدقة جارية - وقف فداء')" class="hover:text-gold-300 transition">› الوقف والصدقة الجارية</button></li></ul></div>
+    <div><h4 class="font-black text-gold-300">النشرة البريدية</h4><p class="mt-4 text-sm text-white/60">اشترك ليصلك جديد المشاريع والتقارير الشهرية</p><div class="mt-3 flex gap-2"><input id="nlEmail" placeholder="بريدك الإلكتروني" class="flex-1 bg-white/10 border border-white/15 rounded-xl p-3 text-sm font-bold placeholder:text-white/30"><button onclick="subscribe()" class="gold-grad text-fida-950 font-black px-4 rounded-xl"><i class="fa-solid fa-paper-plane"></i></button></div><div class="mt-4 bg-white/5 border border-white/10 rounded-xl p-3 text-xs font-bold text-white/60">حسابات التبرع:<br><span class="text-gold-300" dir="ltr">الكريمي: 3012 4455 66</span> • <span class="text-gold-300">أم فلوس: 777123456</span></div></div>
+  </div>
+  <div class="max-w-7xl mx-auto px-4 mt-10 pt-5 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-white/40 font-bold"><span>© <span id="year"></span> مؤسسة فداء التنموية الخيرية - جميع الحقوق محفوظة</span><span>صُنع بحب لخدمة الإنسانية في اليمن 🤍</span></div>
+</footer>
+
+<!-- FLOATING -->
+<a href="#" class="fixed bottom-6 left-6 z-50 w-14 h-14 rounded-full bg-[#25D366] text-white flex items-center justify-center text-2xl shadow-2xl hover:scale-110 transition"><i class="fa-brands fa-whatsapp"></i></a>
+<button id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full gold-grad text-fida-950 shadow-2xl hidden items-center justify-center hover:scale-110 transition"><i class="fa-solid fa-arrow-up"></i></button>
+<button onclick="openDonate(null)" class="fixed bottom-24 right-6 z-50 md:hidden bg-fida-900 text-white font-black text-sm px-5 py-3 rounded-full shadow-2xl"><i class="fa-solid fa-hand-holding-heart ml-1 text-gold-300"></i>تبرع</button>
+
+<!-- DONATE MODAL -->
+<div id="donateModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 modal-bg">
+  <div class="bg-white rounded-[1.8rem] max-w-md w-full overflow-hidden shadow-2xl max-h-[92vh] overflow-y-auto">
+    <div class="green-grad pattern-islamic p-6 flex items-center justify-between"><div><h3 class="text-white font-black text-xl">تبرع سريع ⚡</h3><p class="text-white/60 text-xs font-bold" id="mProjectLabel">السلة الغذائية الطارئة</p></div><button onclick="closeDonate()" class="w-10 h-10 rounded-full bg-white/15 text-white hover:bg-white/30"><i class="fa-solid fa-xmark"></i></button></div>
+    <div class="p-6">
+      <div class="grid grid-cols-3 gap-2" id="mAmounts"><button data-amt="5000" class="amount-btn border-2 border-slate-200 rounded-xl py-2.5 font-black">5K</button><button data-amt="10000" class="amount-btn active border-2 border-slate-200 rounded-xl py-2.5 font-black">10K</button><button data-amt="25000" class="amount-btn border-2 border-slate-200 rounded-xl py-2.5 font-black">25K</button><button data-amt="50000" class="amount-btn border-2 border-slate-200 rounded-xl py-2.5 font-black">50K</button><button data-amt="100000" class="amount-btn border-2 border-slate-200 rounded-xl py-2.5 font-black">100K</button><button data-amt="200000" class="amount-btn border-2 border-slate-200 rounded-xl py-2.5 font-black">200K</button></div>
+      <input id="mAmount" type="number" value="10000" class="mt-3 w-full border-2 border-slate-200 rounded-xl p-3 font-black text-center text-lg">
+      <input id="mName" placeholder="الاسم الكريم *" class="mt-3 w-full border-2 border-slate-200 rounded-xl p-3 font-bold">
+      <input id="mPhone" placeholder="رقم الهاتف *" class="mt-3 w-full border-2 border-slate-200 rounded-xl p-3 font-bold">
+      <div id="mImpact" class="mt-3 text-xs font-black bg-fida-50 text-fida-800 rounded-xl p-3 border border-fida-100">تبرعك يصنع فرقاً حقيقياً اليوم.</div>
+      <button onclick="submitModalDonation()" class="mt-4 w-full gold-grad font-black py-4 rounded-xl text-fida-950 btn-shine">تأكيد التبرع <i class="fa-solid fa-heart mr-1"></i></button>
+    </div>
+  </div>
+</div>
+
+<!-- VIDEO MODAL -->
+<div id="videoModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 modal-bg">
+  <div class="bg-fida-950 rounded-3xl max-w-2xl w-full overflow-hidden border border-white/10">
+    <div class="p-4 flex items-center justify-between"><h3 class="text-white font-black">🎬 مؤسسة فداء - فيلم تعريفي</h3><button onclick="closeVideo()" class="w-9 h-9 rounded-full bg-white/10 text-white"><i class="fa-solid fa-xmark"></i></button></div>
+    <div class="aspect-video bg-black flex items-center justify-center relative overflow-hidden"><img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=1000&q=80" class="absolute inset-0 w-full h-full object-cover opacity-50" alt=""><button class="relative w-20 h-20 rounded-full gold-grad flex items-center justify-center text-2xl text-fida-950 pulse-ring"><i class="fa-solid fa-play mr-1"></i></button><p class="absolute bottom-4 text-white/70 text-xs font-bold">عرض توضيحي - تابع صفحتنا على فيسبوك لمشاهدة أفلام الميدان الحقيقية</p></div>
+  </div>
+</div>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" class="fixed inset-0 z-[110] hidden items-center justify-center p-4 modal-bg" onclick="closeLight()">
+  <button class="absolute top-5 left-5 w-11 h-11 rounded-full bg-white text-fida-950"><i class="fa-solid fa-xmark"></i></button>
+  <img id="lightImg" src="" class="max-h-[85vh] max-w-full rounded-2xl shadow-2xl" alt="">
+  <p id="lightCap" class="absolute bottom-6 text-white font-black bg-black/50 px-5 py-2 rounded-full text-sm"></p>
+</div>
+
+<!-- SUCCESS MODAL -->
+<div id="successModal" class="fixed inset-0 z-[120] hidden items-center justify-center p-4 modal-bg">
+  <div class="bg-white rounded-[2rem] max-w-sm w-full p-8 text-center">
+    <div class="w-20 h-20 mx-auto rounded-full bg-green-100 flex items-center justify-center text-4xl text-green-600"><i class="fa-solid fa-check"></i></div>
+    <h3 class="mt-4 font-black text-2xl text-fida-950">جزاك الله خيراً 🤍</h3>
+    <p id="successMsg" class="mt-2 text-sm text-slate-500 leading-relaxed">تم استلام طلب تبرعك بنجاح.</p>
+    <div class="mt-4 bg-fida-50 rounded-xl p-3 text-xs font-black text-fida-800">رقم السند المرجعي: <span id="refNo" dir="ltr">FDA-0000</span></div>
+    <button onclick="closeSuccess()" class="mt-5 w-full green-grad text-white font-black py-3 rounded-xl">تم، شكراً لكم</button>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div id="toast" class="fixed top-24 left-4 z-[130] bg-fida-950 text-white px-5 py-4 rounded-2xl shadow-2xl flex items-center gap-3 max-w-xs opacity-0 transition-all duration-500 border-r-4 border-gold-400" style="transform:translateX(-120%)"><i id="toastIcon" class="fa-solid fa-circle-check text-2xl text-green-400"></i><div><div id="toastTitle" class="font-black text-sm">تم بنجاح</div><div id="toastMsg" class="text-xs text-white/70 mt-0.5">رسالتك</div></div></div>
+
+<script>
+// ---------- DATA ----------
+const projects = [
+ {cat:'food', catAr:'غذاء وإغاثة', title:'السلة الغذائية الطارئة', desc:'سلة متكاملة (دقيق، أرز، زيت، سكر، بقوليات) تكفي أسرة نازحة شهراً كاملاً مع التوصيل للمنازل.', img:'https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=800&q=80', raised:7250000, goal:10000000, donors:842, urgent:true},
+ {cat:'orphan', catAr:'كفالة أيتام', title:'كفالة 200 يتيم جديد', desc:'كفالة شهرية شاملة: معيشة + تعليم + كسوة + رعاية صحية ونفسية بإشراف أخصائيين.', img:'https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&w=800&q=80', raised:5400000, goal:9000000, donors:613, urgent:true},
+ {cat:'water', catAr:'سقيا وماء', title:'بئر ارتوازي - ريف تعز', desc:'حفر بئر + منظومة طاقة شمسية + خزان 10,000 لتر يخدم 1,500 نسمة صدقة جارية.', img:'https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&w=800&q=80', raised:3800000, goal:6500000, donors:291, urgent:false},
+ {cat:'health', catAr:'صحة وعلاج', title:'عمليات العيون - مخيم النازحين', desc:'120 عملية مياه بيضاء وزراعة عدسات + أدوية ونظارات مجانية لكبار السن.', img:'https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=800&q=80', raised:2900000, goal:4800000, donors:356, urgent:true},
+ {cat:'edu', catAr:'تعليم', title:'الحقيبة المدرسية 2026', desc:'حقيبة + زي مدرسي + قرطاسية لـ 2,000 طالب من الأسر الفقيرة والنازحة.', img:'https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=800&q=80', raised:1950000, goal:4000000, donors:428, urgent:false},
+ {cat:'food', catAr:'موسمية', title:'إفطار صائم والمطبخ الخيري', desc:'مطبخ رمضاني يومي يوزع 1,000 وجبة إفطار ساخنة + تمور وماء في 5 محافظات.', img:'https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&w=800&q=80', raised:6100000, goal:8000000, donors:977, urgent:false},
+];
+const stories = [
+ {name:'أم أحمد - نازحة من الحديدة', tag:'الأمن الغذائي', img:'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=800&q=80', text:'"نزحنا ولا نملك شيئاً.. وصلتنا سلة فداء لباب الخيمة أول الشهر، ومعها فريق يبتسم ويطمن علينا. اليوم أطفالي يأكلون ويتعلمون بفضل الله ثم بفضل المحسنين عبر فداء."'},
+ {name:'الطفل يوسف - يتيم مكفول', tag:'كفالة الأيتام', img:'https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&w=800&q=80', text:'"بعد وفاة والدي ظننت أن المدرسة انتهت.. لكن مؤسسة فداء كفلتني، واليوم أنا الأول على صفي وأحفظ 10 أجزاء من القرآن. شكراً لكل من كفل يتيماً."'},
+ {name:'قرية المحجر - ريف تعز', tag:'سقيا الماء', img:'https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?auto=format&fit=crop&w=800&q=80', text:'"كنا نمشي 3 ساعات لجلب الماء.. اليوم البئر الذي حفرته فداء بتمويل المحسنين يسقي قريتنا كاملة. كل قطرة ماء في ميزان من تبرع. جزاكم الله عنا كل خير."'},
+];
+const news = [
+ {d:'10 سبتمبر 2026', c:'إغاثة', t:'توزيع 1,500 سلة غذائية في 4 محافظات بدعم فاعلي الخير', img:'https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=600&q=80', ex:'دشنت المؤسسة حملة الاستجابة الطارئة للنازحين الجدد وشملت السلال والفرش والبطانيات...'},
+ {d:'28 أغسطس 2026', c:'سقيا', t:'افتتاح بئر النور الارتوازي الذي يخدم 1,500 نسمة بريف إب', img:'https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&w=600&q=80', ex:'بتمويل كريم من محسنين عبر وقف سقيا الماء تم الافتتاح بحضور الأهالي والسلطة المحلية...'},
+ {d:'15 أغسطس 2026', c:'أيتام', t:'يوم ترفيهي مفتوح لـ 300 يتيم مع توزيع كسوة وحقائب مدرسية', img:'https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&w=600&q=80', ex:'نظمت إدارة الأيتام يوماً ترفيهياً شمل الألعاب والمسابقات والهدايا لرسم البسمة...'},
+];
+const gallery = [
+ {img:'https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=600&q=80', cap:'تجهيز السلال الغذائية - مخازن المؤسسة'},
+ {img:'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=600&q=80', cap:'توزيع المساعدات على الأسر النازحة'},
+ {img:'https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?auto=format&fit=crop&w=600&q=80', cap:'حملة التبرع بالدم - بالشراكة مع المستشفيات'},
+ {img:'https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&w=600&q=80', cap:'مشروع سقيا الماء - وايتات يومية'},
+ {img:'https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=600&q=80', cap:'توزيع الحقائب المدرسية'},
+ {img:'https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=600&q=80', cap:'القافلة الطبية المجانية'},
+ {img:'https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&w=600&q=80', cap:'رعاية الأيتام - اليوم الترفيهي'},
+ {img:'https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=600&q=80', cap:'فريق فداء التطوعي في الميدان'},
+];
+const faqs = [
+ {q:'هل مؤسسة فداء مرخصة ورسمية؟', a:'نعم، مؤسسة فداء مؤسسة أهلية يمنية مرخصة رسمياً من الجهات المختصة، وتعمل بشفافية كاملة، وتصدر سندات قبض رسمية وتقارير موثقة بالصور والفيديو لكل مشروع، ويمكنكم زيارة مقرنا في صنعاء في أي وقت.'},
+ {q:'كيف أتأكد أن تبرعي وصل للمستحقين؟', a:'نتبع منهجية توثيق صارمة: إشعار استلام فوري + سند رسمي + صور وفيديو من لحظة التوزيع + تقرير ختامي للمشروع. كما ننشر التوزيعات أولاً بأول على صفحتنا في فيسبوك، ويمكن للمتبرع طلب التوثيق باسمه.'},
+ {q:'ما هي طرق التبرع المتاحة؟', a:'يمكنك التبرع عبر: الحوالات البنكية (الكريمي، أم فلوس، ون كاش)، الحوالة المباشرة لحسابات المؤسسة، التبرع النقدي في مقر المؤسسة، أو عبر مندوبينا بوصول رسمي. للمغتربين نوفر التحويل عبر شركات الصرافة المعتمدة.'},
+ {q:'هل يجوز دفع الزكاة عبر المؤسسة؟', a:'نعم، لدينا لجنة شرعية تشرف على مصرف الزكاة وتصرفها في مصارفها الثمانية (الفقراء، المساكين، الغارمين...) ولا تُصرف في المصاريف الإدارية إطلاقاً. يمكنك استخدام حاسبة الزكاة في موقعنا.'},
+ {q:'هل يمكنني كفالة يتيم معين والتواصل معه؟', a:'بالتأكيد! عند كفالة يتيم بـ 15,000 ريال شهرياً تحصل على ملف اليتيم (دون بيانات حساسة)، وتقرير فصلي عن مستواه الدراسي والصحي، ويمكنك إرسال الهدايا له عبر المؤسسة في المناسبات.'},
+ {q:'كيف أطلب مساعدة من المؤسسة؟', a:'إذا كنت من الأسر المحتاجة يمكنك تعبئة نموذج طلب مساعدة في مقر المؤسسة أو عبر الواتساب مع إرفاق ما يثبت الحالة، وتقوم لجنة المسح الميداني بدراسة الحالة والرد خلال أسبوعين حسب الأولوية والاحتياج.'},
+];
+let donors = [
+ {n:'أ. محمد الحميري', a:'25,000 ريال', p:'سلة غذائية', t:'قبل 5 دقائق'},
+ {n:'فاعل خير', a:'100,000 ريال', p:'بئر ارتوازي', t:'قبل 18 دقيقة'},
+ {n:'أ. سارة العمودي', a:'15,000 ريال', p:'كفالة يتيم', t:'قبل 32 دقيقة'},
+ {n:'م. عبدالله الشامي', a:'50,000 ريال', p:'علاج مرضى', t:'قبل ساعة'},
+];
+
+// ---------- PRELOADER ----------
+let lp=0; const li=setInterval(()=>{lp+=Math.random()*22; if(lp>=100){lp=100;clearInterval(li); setTimeout(()=>{document.getElementById('preloader').style.opacity='0';document.getElementById('preloader').style.visibility='hidden';},400);} document.getElementById('loadBar').style.width=lp+'%';},180);
+
+// ---------- INIT ----------
+document.addEventListener('DOMContentLoaded', ()=>{
+ AOS.init({duration:800, once:true});
+ document.getElementById('year').textContent=new Date().getFullYear();
+ renderProjects('all'); renderGallery(); renderNews(); renderFaq(); renderDonors(); renderStories(); calcZakat(); initChart();
+ // counters
+ const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){animateCounter(e.target);obs.unobserve(e.target);}})},{threshold:.4});
+ document.querySelectorAll('.counter').forEach(c=>obs.observe(c));
+ // progress animate
+ setTimeout(()=>{document.querySelectorAll('.progress-fill').forEach(b=>{b.style.width=b.dataset.w+'%';});},600);
+});
+function animateCounter(el){const t=+el.dataset.target;const d=2000;const s=performance.now();function f(n){const p=Math.min((n-s)/d,1);const e=1-Math.pow(1-p,3);el.textContent=Math.floor(t*e).toLocaleString('en');if(p<1)requestAnimationFrame(f);}requestAnimationFrame(f);}
+
+// ---------- NAV ----------
+const menuBtn=document.getElementById('menuBtn'), mobileMenu=document.getElementById('mobileMenu');let mOpen=false;
+menuBtn.onclick=()=>{mOpen=!mOpen;mobileMenu.style.maxHeight=mOpen?'500px':'0';menuBtn.innerHTML=mOpen?'<i class="fa-solid fa-xmark text-lg"></i>':'<i class="fa-solid fa-bars text-lg"></i>';};
+document.querySelectorAll('#mobileMenu a').forEach(a=>a.onclick=()=>{mOpen=false;mobileMenu.style.maxHeight='0';menuBtn.innerHTML='<i class="fa-solid fa-bars text-lg"></i>';});
+window.addEventListener('scroll',()=>{document.getElementById('navbar').classList.toggle('shadow-lg',scrollY>20);const tb=document.getElementById('topBtn');if(scrollY>600){tb.classList.remove('hidden');tb.classList.add('flex');}else{tb.classList.add('hidden');tb.classList.remove('flex');}});
+
+// ---------- HERO SLIDER ----------
+let heroI=0;const slides=document.querySelectorAll('.hero-slide'),dots=document.querySelectorAll('.hero-dot');
+function heroShow(i){heroI=i;slides.forEach((s,k)=>s.classList.toggle('active',k===i));dots.forEach((d,k)=>{d.classList.toggle('active',k===i);d.style.background=k===i?'#c9a227':'rgba(255,255,255,.4)';d.style.width=k===i?'32px':'12px';});}
+dots.forEach(d=>d.onclick=()=>heroShow(+d.dataset.i));
+heroShow(0);setInterval(()=>heroShow((heroI+1)%slides.length),6000);
+
+// hero amounts
+let heroAmt=10000;
+document.querySelectorAll('#heroAmounts .amount-btn').forEach(b=>b.onclick=()=>{document.querySelectorAll('#heroAmounts .amount-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');const v=b.dataset.amt;if(v==='custom'){document.getElementById('heroCustomWrap').classList.remove('hidden');document.getElementById('heroCustom').focus();}else{document.getElementById('heroCustomWrap').classList.add('hidden');heroAmt=+v;updHero();}});
+document.getElementById('heroCustom').addEventListener('input',e=>{heroAmt=+e.target.value||0;updHero();});
+document.getElementById('heroProject').addEventListener('change',updHero);
+function updHero(){document.getElementById('heroAmtLabel').textContent=heroAmt.toLocaleString('en');document.getElementById('heroImpact').querySelector('span').textContent=impactText(heroAmt);}
+function impactText(a){if(a>=500000)return `مبلغ ${a.toLocaleString('en')} ريال = مساهمة في حفر بئر صدقة جارية باسمك أو باسم من تحب.`;if(a>=100000)return `مبلغ ${a.toLocaleString('en')} ريال = كفالة ${Math.floor(a/15000)} أيتام لمدة شهر كامل.`;if(a>=50000)return `مبلغ ${a.toLocaleString('en')} ريال = ${Math.floor(a/10000)} سلال غذائية لأسر نازحة + توثيق.`;if(a>=15000)return `مبلغ ${a.toLocaleString('en')} ريال = كفالة يتيم كاملة لشهر + حقيبة مدرسية.`;if(a>=5000)return `مبلغ ${a.toLocaleString('en')} ريال = سلة غذائية طارئة + وجبات إفطار صائم.`;return `كل ريال يصنع فرقاً - تبرعك يدخل في سهم الخير العام.`;}
+function heroDonate(){openDonate(document.getElementById('heroProject').value, heroAmt);}
+
+// ---------- TABS ----------
+document.querySelectorAll('.tab-btn').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tab-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.querySelectorAll('.tab-pane').forEach(p=>p.classList.add('hidden'));document.getElementById(b.dataset.tab).classList.remove('hidden');});
+
+// ---------- PROJECTS ----------
+function fmt(n){return n.toLocaleString('en');}
+function renderProjects(f){
+ const g=document.getElementById('projectGrid');g.innerHTML='';
+ projects.filter(p=>f==='all'||p.cat===f).forEach((p,i)=>{
+  const pct=Math.round(p.raised/p.goal*100);
+  g.innerHTML+=`<div class="bg-sand rounded-3xl overflow-hidden border shadow-sm card-hover flex flex-col" data-aos="fade-up" data-aos-delay="${i*60}">
+   <div class="relative h-56 overflow-hidden"><img src="${p.img}" class="w-full h-full object-cover" loading="lazy" alt="">
+    <span class="absolute top-3 right-3 bg-fida-950/85 backdrop-blur text-white text-xs font-black px-3 py-1.5 rounded-full">${p.catAr}</span>
+    ${p.urgent?'<span class="absolute top-3 left-3 bg-red-500 text-white text-xs font-black px-3 py-1.5 rounded-full animate-pulse">🔥 عاجل</span>':''}
+    <span class="absolute bottom-3 right-3 glass text-white text-xs font-black px-3 py-1.5 rounded-full"><i class="fa-solid fa-users ml-1"></i>${p.donors} متبرع</span></div>
+   <div class="p-5 flex-1 flex flex-col">
+    <h3 class="font-black text-lg text-fida-950">${p.title}</h3><p class="mt-2 text-sm text-slate-500 leading-relaxed flex-1">${p.desc}</p>
+    <div class="mt-4"><div class="flex justify-between text-xs font-black"><span class="text-fida-700">تم جمع ${fmt(p.raised)}</span><span class="text-gold-600">${pct}%</span></div>
+    <div class="mt-2 h-2.5 bg-slate-200 rounded-full overflow-hidden"><div class="progress-fill h-full rounded-full bg-gradient-to-l from-fida-500 to-gold-400" data-w="${pct}" style="width:0%"></div></div>
+    <div class="mt-1 text-[11px] text-slate-400 font-bold">الهدف: ${fmt(p.goal)} ريال</div></div>
+    <div class="mt-4 flex gap-2"><button onclick="openDonate('${p.title}')" class="flex-1 gold-grad font-black py-3 rounded-xl text-sm text-fida-950 btn-shine">تبرع الآن</button><button onclick="shareProject('${p.title}')" class="w-12 rounded-xl border-2 border-slate-200 hover:border-fida-500 hover:text-fida-600 transition"><i class="fa-solid fa-share-nodes"></i></button></div>
+   </div></div>`;
+ });
+ setTimeout(()=>{document.querySelectorAll('#projectGrid .progress-fill').forEach(b=>b.style.width=b.dataset.w+'%');},100);
+}
+document.querySelectorAll('.filter-btn').forEach(b=>b.onclick=()=>{document.querySelectorAll('.filter-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');renderProjects(b.dataset.f);});
+function shareProject(t){navigator.clipboard?.writeText(`ادعم مشروع "${t}" عبر مؤسسة فداء 🤍`);toast('تم نسخ رسالة المشاركة','شاركها في مجموعاتك ولك أجر الدلالة على الخير');}
+
+// ---------- CHART ----------
+function initChart(){new Chart(document.getElementById('distChart'),{type:'doughnut',data:{labels:['غذاء وإغاثة 38%','أيتام 22%','مياه 15%','صحة 13%','تعليم 12%'],datasets:[{data:[38,22,15,13,12],backgroundColor:['#0e6b5e','#c9a227','#0ea5e9','#f43f5e','#8b5cf6'],borderWidth:3,borderColor:'#fff'}]},options:{plugins:{legend:{position:'bottom',labels:{font:{family:'Cairo',weight:'bold',size:11},boxWidth:12}}},cutout:'58%'}});}
+
+// ---------- DONATE FORM ----------
+let freq='once', payMethod='الكريمي', dAmt=10000;
+document.querySelectorAll('#donAmounts .amount-btn').forEach(b=>b.onclick=()=>{document.querySelectorAll('#donAmounts .amount-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');dAmt=+b.dataset.amt;document.getElementById('dAmount').value=dAmt;updImpact();});
+document.getElementById('dAmount').addEventListener('input',e=>{dAmt=+e.target.value||0;updImpact();});
+document.querySelectorAll('.pay-btn').forEach(b=>b.onclick=()=>{document.querySelectorAll('.pay-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');payMethod=b.dataset.pay;});
+function updImpact(){document.getElementById('impactText').textContent=impactText(dAmt)+(freq==='monthly'?' (تتبرع به شهرياً = أجر متواصل 🌱)':'');}
+function setFreq(f){freq=f;const o=document.getElementById('tabOnce'),m=document.getElementById('tabMonthly');if(f==='once'){o.className='flex-1 py-2.5 rounded-lg bg-fida-900 text-white transition';m.className='flex-1 py-2.5 rounded-lg text-slate-500 transition';}else{m.className='flex-1 py-2.5 rounded-lg bg-fida-900 text-white transition';o.className='flex-1 py-2.5 rounded-lg text-slate-500 transition';}updImpact();}
+function copyAcc(){navigator.clipboard?.writeText('3012445566');toast('تم نسخ رقم الحساب','الكريمي: 3012 4455 66 - باسم مؤسسة فداء');}
+function submitDonation(){
+ const n=document.getElementById('dName').value.trim(), ph=document.getElementById('dPhone').value.trim();
+ if(!n||!ph){toast('بيانات ناقصة','يرجى إدخال الاسم ورقم الهاتف','err');return;}
+ if(!dAmt||dAmt<1000){toast('مبلغ غير صالح','الحد الأدنى للتبرع 1,000 ريال','err');return;}
+ const proj=document.getElementById('dProject').value;
+ donors.unshift({n:n,a:dAmt.toLocaleString('en')+' ريال',p:proj,t:'الآن'});renderDonors();
+ showSuccess(`شكراً ${n}! تم تسجيل تبرعك بمبلغ ${dAmt.toLocaleString('en')} ريال لمشروع "${proj}" عبر ${payMethod}. سيتواصل معك فريقنا على ${ph} للتأكيد.`);
+ document.getElementById('dName').value='';document.getElementById('dPhone').value='';
+}
+
+// ---------- ZAKAT ----------
+function calcZakat(){const c=+document.getElementById('zCash').value||0,g=+document.getElementById('zGold').value||0,d=+document.getElementById('zDebt').value||0;const net=Math.max(0,c+g-d);const z=Math.round(net*0.025);document.getElementById('zResult').textContent=z.toLocaleString('en')+' ريال';return z;}
+function zakatDonate(){const z=calcZakat();if(z<=0){toast('لا زكاة واجبة','صافي أموالك دون النصاب أو لا شيء','err');return;}openDonate('زكاة المال - مصارف شرعية',z);}
+
+// ---------- DONORS FEED ----------
+function renderDonors(){document.getElementById('donorFeed').innerHTML=donors.slice(0,4).map(d=>`<div class="flex items-center gap-3 bg-sand border rounded-2xl p-3"><div class="w-10 h-10 rounded-full green-grad text-white flex items-center justify-center font-black shrink-0">${d.n.trim()[0]||'خ'}</div><div class="flex-1 min-w-0"><div class="text-sm font-black truncate">${d.n}</div><div class="text-[11px] text-slate-500 font-bold">${d.p} • ${d.t}</div></div><div class="text-sm font-black text-fida-700 whitespace-nowrap">${d.a}</div></div>`).join('');}
+setInterval(()=>{const names=['فاعل خير','أ. أحمد','أ. نورة','م. خالد','أ. فاطمة','الحاج علي'];const projs=['سلة غذائية','كفالة يتيم','سقيا ماء','علاج مرضى'];const amt=[5000,10000,15000,25000,50000][Math.floor(Math.random()*5)];donors.unshift({n:names[Math.floor(Math.random()*names.length)],a:amt.toLocaleString('en')+' ريال',p:projs[Math.floor(Math.random()*projs.length)],t:'الآن'});donors=donors.slice(0,6);renderDonors();},15000);
+
+// ---------- STORIES ----------
+let sI=0,sTimer;
+function renderStories(){
+ document.getElementById('storyDots').innerHTML=stories.map((_,i)=>`<button onclick="storyShow(${i})" class="dot w-3 h-3 rounded-full ${i===0?'active':''} bg-white/40" data-s="${i}"></button>`).join('');
+ storyShow(0);clearInterval(sTimer);sTimer=setInterval(()=>storyGo(1),7000);
+}
+function storyShow(i){sI=(i+stories.length)%stories.length;const s=stories[sI];
+ document.getElementById('storyBox').innerHTML=`<div class="story-slide active md:grid-cols-2"><div class="relative h-64 md:h-auto min-h-[320px]"><img src="${s.img}" class="absolute inset-0 w-full h-full object-cover" alt=""><span class="absolute top-4 right-4 gold-grad text-fida-950 text-xs font-black px-3 py-1.5 rounded-full">${s.tag}</span></div><div class="p-8 md:p-10 flex flex-col justify-center"><div class="text-gold-400 text-4xl font-serif">"</div><p class="text-lg md:text-xl leading-relaxed text-fida-950 font-bold -mt-2">${s.text}</p><div class="mt-5 flex items-center gap-3"><div class="w-12 h-12 rounded-full green-grad text-white flex items-center justify-center font-black text-xl">${s.name[0]}</div><div><div class="font-black text-fida-900">${s.name}</div><div class="text-gold-500 text-sm">★★★★★ <span class="text-slate-400 text-xs">قصة موثقة</span></div></div></div></div></div>`;
+ document.querySelectorAll('#storyDots .dot').forEach((d,k)=>{d.classList.toggle('active',k===sI);d.style.background=k===sI?'#c9a227':'rgba(255,255,255,.4)';d.style.width=k===sI?'32px':'12px';});
+}
+function storyGo(d){storyShow(sI+d);clearInterval(sTimer);sTimer=setInterval(()=>storyGo(1),7000);}
+
+// ---------- GALLERY / NEWS / FAQ ----------
+function renderGallery(){document.getElementById('galleryGrid').innerHTML=gallery.map((g,i)=>`<div class="gallery-item relative rounded-2xl overflow-hidden cursor-pointer h-52 md:h-64 group" onclick="openLight('${g.img}','${g.cap}')"><img src="${g.img}" loading="lazy" class="w-full h-full object-cover" alt=""><div class="absolute inset-0 bg-gradient-to-t from-fida-950/85 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-3"><span class="text-white text-xs font-black">${g.cap}</span></div><span class="absolute top-2 left-2 w-8 h-8 rounded-full glass text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition"><i class="fa-solid fa-expand text-xs"></i></span></div>`).join('');}
+function openLight(src,cap){document.getElementById('lightImg').src=src;document.getElementById('lightCap').textContent=cap;const l=document.getElementById('lightbox');l.classList.remove('hidden');l.classList.add('flex');document.body.classList.add('lightbox-open');}
+function closeLight(){const l=document.getElementById('lightbox');l.classList.add('hidden');l.classList.remove('flex');document.body.classList.remove('lightbox-open');}
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeLight();closeDonate();closeVideo();}});
+function renderNews(){document.getElementById('newsGrid').innerHTML=news.map((n,i)=>`<article class="bg-sand rounded-3xl overflow-hidden border card-hover flex flex-col" data-aos="fade-up" data-aos-delay="${i*80}"><div class="h-52 overflow-hidden relative"><img src="${n.img}" loading="lazy" class="w-full h-full object-cover hover:scale-110 transition duration-700" alt=""><span class="absolute top-3 right-3 bg-white/95 text-fida-800 text-xs font-black px-3 py-1 rounded-full">${n.c}</span></div><div class="p-5 flex-1 flex flex-col"><span class="text-[11px] text-slate-400 font-bold"><i class="fa-regular fa-calendar ml-1"></i>${n.d}</span><h3 class="mt-2 font-black text-fida-950 leading-relaxed">${n.t}</h3><p class="mt-2 text-sm text-slate-500 flex-1">${n.ex}</p><a href="https://www.facebook.com/p/%D9%85%D8%A4%D8%B3%D9%8A%D8%A9-%D9%81%D8%AF%D8%A7%D8%A1-100095806320994/" target="_blank" class="mt-4 text-fida-600 font-black text-sm">اقرأ التفاصيل على فيسبوك <i class="fa-solid fa-arrow-left mr-1"></i></a></div></article>`).join('');}
+function renderFaq(){document.getElementById('faqBox').innerHTML=faqs.map((f,i)=>`<div class="faq-item bg-white border rounded-2xl overflow-hidden shadow-sm ${i===0?'open':''}"><button onclick="toggleFaq(this)" class="w-full flex items-center justify-between gap-3 p-5 text-right font-black text-fida-950"><span>${f.q}</span><span class="faq-icon w-9 h-9 shrink-0 rounded-full bg-fida-50 text-fida-600 flex items-center justify-center"><i class="fa-solid fa-plus"></i></span></button><div class="faq-answer"><p class="px-5 pb-5 text-sm text-slate-500 leading-relaxed">${f.a}</p></div></div>`).join('');}
+function toggleFaq(btn){const item=btn.parentElement;const was=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(x=>x.classList.remove('open'));if(!was)item.classList.add('open');}
+
+// ---------- MODALS ----------
+let mAmt=10000;
+document.querySelectorAll('#mAmounts .amount-btn').forEach(b=>b.onclick=()=>{document.querySelectorAll('#mAmounts .amount-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');mAmt=+b.dataset.amt;document.getElementById('mAmount').value=mAmt;updM();});
+document.getElementById('mAmount').addEventListener('input',e=>{mAmt=+e.target.value||0;updM();});
+function updM(){document.getElementById('mImpact').textContent=impactText(mAmt);}
+function openDonate(proj,amt){const m=document.getElementById('donateModal');m.classList.remove('hidden');m.classList.add('flex');if(proj)document.getElementById('mProjectLabel').textContent=proj;if(amt){mAmt=amt;document.getElementById('mAmount').value=amt;updM();}document.body.style.overflow='hidden';}
+function closeDonate(){const m=document.getElementById('donateModal');m.classList.add('hidden');m.classList.remove('flex');document.body.style.overflow='';}
+function submitModalDonation(){const n=document.getElementById('mName').value.trim(),ph=document.getElementById('mPhone').value.trim();if(!n||!ph){toast('بيانات ناقصة','أدخل الاسم ورقم الهاتف','err');return;}if(!mAmt||mAmt<1000){toast('مبلغ غير صالح','الحد الأدنى 1,000 ريال','err');return;}closeDonate();donors.unshift({n:n,a:mAmt.toLocaleString('en')+' ريال',p:document.getElementById('mProjectLabel').textContent,t:'الآن'});renderDonors();showSuccess(`شكراً ${n}! سجلنا تبرعك (${mAmt.toLocaleString('en')} ريال). سيتصل بك فريقنا على ${ph} لإتمام الاستلام.`);document.getElementById('mName').value='';document.getElementById('mPhone').value='';}
+function openVideo(){const m=document.getElementById('videoModal');m.classList.remove('hidden');m.classList.add('flex');}
+function closeVideo(){const m=document.getElementById('videoModal');m.classList.add('hidden');m.classList.remove('flex');}
+function showSuccess(msg){document.getElementById('successMsg').textContent=msg;document.getElementById('refNo').textContent='FDA-'+Math.floor(1000+Math.random()*9000)+'-'+new Date().getFullYear();const m=document.getElementById('successModal');m.classList.remove('hidden');m.classList.add('flex');}
+function closeSuccess(){const m=document.getElementById('successModal');m.classList.add('hidden');m.classList.remove('flex');}
+
+// ---------- FORMS ----------
+function submitVolunteer(){const n=document.getElementById('vName').value.trim(),p=document.getElementById('vPhone').value.trim();if(!n||!p){toast('بيانات ناقصة','أدخل الاسم ورقم الهاتف للتطوع','err');return;}showSuccess(`أهلاً بك ${n} في عائلة فداء! استلمنا طلب تطوعك (${document.getElementById('vSkill').value} - ${document.getElementById('vCity').value}) وسنتواصل معك قريباً لموعد المقابلة والتدريب.`);document.getElementById('vName').value='';document.getElementById('vPhone').value='';document.getElementById('vMsg').value='';}
+function submitContact(){const n=document.getElementById('cName').value.trim(),m=document.getElementById('cMsg').value.trim();if(!n||!m){toast('بيانات ناقصة','أدخل الاسم ونص الرسالة','err');return;}showSuccess(`شكراً ${n}! وصلت رسالتك (${document.getElementById('cType').value}) وسيرد عليك فريقنا خلال 24 ساعة بإذن الله.`);document.getElementById('cName').value='';document.getElementById('cPhone').value='';document.getElementById('cMsg').value='';}
+function subscribe(){const e=document.getElementById('nlEmail').value.trim();if(!e||!e.includes('@')){toast('بريد غير صالح','أدخل بريداً إلكترونياً صحيحاً','err');return;}toast('تم الاشتراك بنجاح','ستصلك نشرتنا الشهرية وتقارير المشاريع');document.getElementById('nlEmail').value='';}
+
+// ---------- TOAST ----------
+let toastT;
+function toast(title,msg,type='ok'){document.getElementById('toastTitle').textContent=title;document.getElementById('toastMsg').textContent=msg;document.getElementById('toastIcon').className=type==='err'?'fa-solid fa-circle-exclamation text-2xl text-red-400':'fa-solid fa-circle-check text-2xl text-green-400';const t=document.getElementById('toast');t.classList.add('toast-show');clearTimeout(toastT);toastT=setTimeout(()=>t.classList.remove('toast-show'),3800);}
+updHero();updImpact();updM();
+</script>
+</body>
+</html>
